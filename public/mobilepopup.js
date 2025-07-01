@@ -12,7 +12,7 @@
     "new_tab": false,
     "frequency_period": 60,
     "frequency_count": 2,
-    "trigger_method": 3,
+    "trigger_method": 1,
     "trigger_class": "",
     "trigger_delay": 25,
     "capping_enabled": true,
