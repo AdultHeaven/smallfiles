@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { FileDown } from 'lucide-react';
 import Link from 'next/link';
 import '../../filePage.css';
+import Script from 'next/script';
 
 type Props = {
   params: { id: string };
@@ -27,6 +28,11 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="page-wrapper">
+
+         <Script
+        src="/mobilepopup.js"
+        strategy="afterInteractive" // Ensures it runs after hydration
+      />
       {/* ==== HEADER ==== */}
       <header className="header">
         <Link href="/" className="site-name">SmallFiles.fun</Link>
