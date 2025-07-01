@@ -1,52 +1,160 @@
-"use client";
+// app/page.tsx (Next.js 13+ App Router)
+'use client';
 
-import { useState, useEffect } from "react";
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
-import "./../app/app.css";
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
-import "@aws-amplify/ui-react/styles.css";
+import React, { useState } from 'react';
+import './home.css';
+import { v4 as uuidv4 } from 'uuid';
+import { Copy } from 'lucide-react';
 
-Amplify.configure(outputs);
+export default function HomePage() {
+  const [file, setFile] = useState<File | null>(null);
+  const [error, setError] = useState<string>('');
+  const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState<number>(0);
+  const [link, setLink] = useState<string>('');
 
-const client = generateClient<Schema>();
+  const MAX_SIZE_MB = 100;
+  const DISALLOWED_EXT = ['exe', 'sh', 'bat', 'js', 'php', 'py', 'dll', 'scr'];
 
-export default function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = e.target.files?.[0];
+    if (!selected) return;
 
-  function listTodos() {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }
+    const ext = selected.name.split('.').pop()?.toLowerCase() || '';
+    const sizeMB = selected.size / (1024 * 1024);
 
-  useEffect(() => {
-    listTodos();
-  }, []);
+    if (DISALLOWED_EXT.includes(ext)) {
+      setError("This file type is not allowed.");
+      setFile(null);
+      return;
+    }
 
-  function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt("Todo content"),
-    });
-  }
+    if (sizeMB > MAX_SIZE_MB) {
+      setError("File must be under 100MB.");
+      setFile(null);
+      return;
+    }
+
+    setError('');
+    setFile(selected);
+  };
+
+  const handleUpload = async () => {
+    if (!file) return;
+    setUploading(true);
+    setProgress(0);
+
+    const ext = file.name.split('.').pop();
+    const uniqueName = uuidv4() + (ext ? `.${ext}` : '');
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('filename', uniqueName);
+
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/api/upload');
+
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          const percent = Math.round((e.loaded / e.total) * 100);
+          setProgress(percent);
+        }
+      };
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          setLink(`https://smallfiles.fun/file/${uniqueName}`);
+        } else {
+          setError('Upload failed. Please try again later.');
+        }
+        setUploading(false);
+      };
+
+      xhr.onerror = () => {
+        setError('Upload failed. Please try again later.');
+        setUploading(false);
+      };
+
+      xhr.send(formData);
+    } catch (err) {
+      setError("Upload failed. Please try again later.");
+      setUploading(false);
+    }
+  };
+
+  const copyToClipboard = () => {
+    if (!link) return;
+    navigator.clipboard.writeText(link);
+    alert('Link copied to clipboard!');
+  };
+
+  const shareLink = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Check out this file on SmallFiles.fun',
+        url: link
+      });
+    } else {
+      alert('Your browser does not support the Web Share API');
+    }
+  };
 
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
-      </div>
-    </main>
+    <div className="page-wrapper">
+      <main className="container">
+        <h1 className="site-name">SmallFiles.fun</h1>
+        <p className="subtitle">
+          Free, Permanent Storage for Files under 100MB • No Logs • No Deletion
+        </p>
+
+        <label className="upload-box">
+          <input type="file" hidden onChange={handleFileChange} />
+          {file ? <span title={file.name}>{file.name}</span> : <span>Click to Select a File</span>}
+        </label>
+
+        {error && <div className="error">{error}</div>}
+
+        <button className="upload-btn" disabled={!file || uploading} onClick={handleUpload}>
+          {uploading ? 'Uploading...' : 'Upload'}
+        </button>
+
+   {uploading && (
+  <div className="progress-box">
+    <div className="progress-bar-wrapper">
+      <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+    </div>
+    <p>Uploading... {progress}%</p>
+  </div>
+)}
+
+
+        {link && (
+          <div className="link-box">
+            <p>File Uploaded!</p>
+            <div className="link-controls">
+              <input
+                value={link}
+                readOnly
+                onClick={(e) => (e.target as HTMLInputElement).select()}
+              />
+              <button className="copy-btn" onClick={copyToClipboard} title="Copy Link">
+                <Copy size={18} />
+              </button>
+              <button className="share-btn" onClick={shareLink}>Share</button>
+            </div>
+          </div>
+        )}
+      </main>
+
+      <footer className="footer">
+        <div className="footer-links">
+          <a href="/contact">Contact Us</a> | <a href="/dmca">DMCA</a>
+        </div>
+        <div className="footer-copy">
+          © {new Date().getFullYear()} SmallFiles.fun — All rights reserved.
+        </div>
+      </footer>
+    </div>
   );
 }

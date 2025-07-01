@@ -9,6 +9,12 @@ frontend:
   phases:
     build:
       commands:
+        # ✅ Inject BunnyCDN environment variables
+        - echo "BUNNY_STORAGE_ZONE=$BUNNY_STORAGE_ZONE" >> .env.production
+        - echo "BUNNY_STORAGE_ZONE_PASSWORD=$BUNNY_STORAGE_ZONE_PASSWORD" >> .env.production
+        - echo "BUNNY_PULL_ZONE_HOSTNAME=$BUNNY_PULL_ZONE_HOSTNAME" >> .env.production
+
+        # ✅ Then run build
         - npm run build
   artifacts:
     baseDirectory: .next
