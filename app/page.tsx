@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import './home.css';
 import { v4 as uuidv4 } from 'uuid';
 import { Copy } from 'lucide-react';
+import { uploadToBunny } from './uploadToBunny';
 
 export default function HomePage() {
   const [file, setFile] = useState<File | null>(null);
@@ -39,50 +40,64 @@ export default function HomePage() {
     setFile(selected);
   };
 
-  const handleUpload = async () => {
-    if (!file) return;
-    setUploading(true);
-    setProgress(0);
+  // const handleUpload = async () => {
+  //   if (!file) return;
+  //   setUploading(true);
+  //   setProgress(0);
 
-    const ext = file.name.split('.').pop();
-    const uniqueName = uuidv4() + (ext ? `.${ext}` : '');
+  //   const ext = file.name.split('.').pop();
+  //   const uniqueName = uuidv4() + (ext ? `.${ext}` : '');
 
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('filename', uniqueName);
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+  //   formData.append('filename', uniqueName);
 
-    try {
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', '/api/upload');
+  //   try {
+  //     const xhr = new XMLHttpRequest();
+  //     xhr.open('POST', '/api/upload');
 
-      xhr.upload.onprogress = (e) => {
-        if (e.lengthComputable) {
-          const percent = Math.round((e.loaded / e.total) * 100);
-          setProgress(percent);
-        }
-      };
+  //     xhr.upload.onprogress = (e) => {
+  //       if (e.lengthComputable) {
+  //         const percent = Math.round((e.loaded / e.total) * 100);
+  //         setProgress(percent);
+  //       }
+  //     };
 
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          setLink(`https://smallfiles.fun/file/${uniqueName}`);
-        } else {
-          setError('Upload failed. Please try again later.');
-        }
-        setUploading(false);
-      };
+  //     xhr.onload = () => {
+  //       if (xhr.status === 200) {
+  //         setLink(`https://smallfiles.fun/file/${uniqueName}`);
+  //       } else {
+  //         setError('Upload failed. Please try again later.');
+  //       }
+  //       setUploading(false);
+  //     };
 
-      xhr.onerror = () => {
-        setError('Upload failed. Please try again later.');
-        setUploading(false);
-      };
+  //     xhr.onerror = () => {
+  //       setError('Upload failed. Please try again later.');
+  //       setUploading(false);
+  //     };
 
-      xhr.send(formData);
-    } catch (err) {
-      setError("Upload failed. Please try again later.");
-      setUploading(false);
-    }
-  };
+  //     xhr.send(formData);
+  //   } catch (err) {
+  //     setError("Upload failed. Please try again later.");
+  //     setUploading(false);
+  //   }
+  // };
+const handleUpload = async () => {
+  if (!file) return;
+  setUploading(true);
+  setProgress(0);
 
+  try {
+    const url = await uploadToBunny(file);
+    setLink(url);
+  } catch (err) {
+    console.error("❌ Upload error:", err);
+    setError('Upload failed. Please try again later.');
+  }
+
+  setUploading(false);
+};
   const copyToClipboard = () => {
     if (!link) return;
     navigator.clipboard.writeText(link);
