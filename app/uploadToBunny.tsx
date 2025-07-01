@@ -1,7 +1,7 @@
 export async function uploadToBunny(file: File): Promise<string> {
-const BUNNY_STORAGE_ZONE = process.env.BUNNY_STORAGE_ZONE!;
-const BUNNY_STORAGE_PASSWORD = process.env.BUNNY_STORAGE_ZONE_PASSWORD!;
-const BUNNY_PULL_ZONE_HOSTNAME = process.env.BUNNY_PULL_ZONE_HOSTNAME!;
+  const BUNNY_STORAGE_ZONE = process.env.NEXT_PUBLIC_BUNNY_STORAGE_ZONE!;
+  const BUNNY_STORAGE_PASSWORD = process.env.NEXT_PUBLIC_BUNNY_STORAGE_ZONE_PASSWORD!;
+  const BUNNY_PULL_ZONE_HOSTNAME = process.env.NEXT_PUBLIC_BUNNY_PULL_ZONE_HOSTNAME!;
 
   if (!BUNNY_STORAGE_ZONE || !BUNNY_STORAGE_PASSWORD || !BUNNY_PULL_ZONE_HOSTNAME) {
     console.error("❌ Missing Bunny environment variables.");
