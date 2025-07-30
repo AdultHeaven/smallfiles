@@ -1,4 +1,3 @@
-/* ==== Base Layout ==== */
 body {
   background: linear-gradient(to bottom, #1f0c0c, #0f0f0f 120px);
   color: #f0f0f0;
@@ -15,7 +14,6 @@ body {
   text-align: center;
 }
 
-/* ==== Typography ==== */
 .title {
   font-size: 2.2rem;
   font-weight: 700;
@@ -29,7 +27,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* ==== Upload Box ==== */
 .upload-box {
   display: block;
   padding: 30px;
@@ -84,7 +81,6 @@ body {
 }
 
 
-/* ==== Upload Button ==== */
 .upload-btn {
   padding: 12px 30px;
   background-color: #2e7dff;
@@ -106,13 +102,11 @@ body {
   cursor: not-allowed;
 }
 
-/* ==== Error Message ==== */
 .error {
   color: #ff4c4c;
   margin-bottom: 10px;
 }
 
-/* ==== Uploaded Link Box ==== */
 .link-box {
   margin-top: 20px;
   padding: 15px;
@@ -132,7 +126,6 @@ body {
   cursor: pointer;
 }
 
-/* ==== Footer ==== */
 .footer {
   margin-top: 60px;
   padding: 20px 10px;
@@ -157,7 +150,6 @@ body {
   text-decoration: underline;
 }
 
-/* ==== Responsive ==== */
 @media (max-width: 600px) {
   .container {
     margin: 20px 10px;
@@ -200,7 +192,6 @@ html, body {
   text-align: center;
 }
 
-/* Footer stays at the bottom */
 .footer {
   padding: 20px 10px;
   text-align: center;
@@ -225,7 +216,6 @@ html, body {
 }
 
 
-/* ==== Responsive (Mobile First) ==== */
 @media (max-width: 600px) {
   .container {
     margin: 10px 12px;
@@ -345,7 +335,6 @@ html, body {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Mobile tweaks */
 @media (max-width: 600px) {
   .link-controls {
     flex-direction: column;
@@ -392,7 +381,6 @@ html, body {
   text-align: center;
 }
 
-/* Mobile tweaks */
 @media (max-width: 480px) {
   .link-controls {
     flex-direction: column;

@@ -13,7 +13,7 @@ type Props = {
 const videoExts = ['mp4', 'webm'];
 const imageExts = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'];
 
-const CDN_BASE = process.env.NEXT_PUBLIC_BUNNY_PULLZONE_URL || 'https://cdn.smallfiles.fun';
+const CDN_BASE = process.env.NEXT_PUBLIC_BUNNY_PULLZONE_URL || 'https://smallfiles.b-cdn.net';
 
 export default function FilePage({ params }: Props) {
   const { id } = params;
