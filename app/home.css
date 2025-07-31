@@ -429,6 +429,7 @@ html, body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+  color: #ffffff;
   padding: 6px 0;
   letter-spacing: -0.5px;
 

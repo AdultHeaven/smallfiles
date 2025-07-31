@@ -33,6 +33,15 @@ export default function FilePage({ params }: Props) {
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
       />
+
+      <Script
+  src="//cdn.tsyndicate.com/sdk/v1/p.js"
+  data-ts-spot="f0f128801be54eec98db0136d58d0583"
+  strategy="afterInteractive"
+  async
+  defer
+/>
+
       {/* ==== HEADER ==== */}
       <header className="header">
         <Link href="/" className="site-name">SmallFiles.fun</Link>
