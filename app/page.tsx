@@ -14,7 +14,7 @@ export default function HomePage() {
   const [progress, setProgress] = useState<number>(0);
   const [link, setLink] = useState<string>('');
 
-  const MAX_SIZE_MB = 100;
+  const MAX_SIZE_MB = 10;
   const DISALLOWED_EXT = ['exe', 'sh', 'bat', 'js', 'php', 'py', 'dll', 'scr'];
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,7 +120,7 @@ const handleUpload = async () => {
       <main className="container">
         <h1 className="site-name">SmallFiles.fun</h1>
         <p className="subtitle">
-          Free, Permanent Storage for Files under 100MB • No Logs • No Deletion
+          Free, Permanent Storage for Files under 10MB • No Logs • No Deletion
         </p>
 
         <label className="upload-box">
