@@ -70,11 +70,11 @@ export default function FilePage({ params }: Props) {
             </div>
           )}
         </div>
-
+{/* 
         <a href={fileUrl} download className="download-button">
           <FileDown size={18} />
           <span>Download File</span>
-        </a>
+        </a> */}
       </main>
 
       {/* ==== FOOTER ==== */}
