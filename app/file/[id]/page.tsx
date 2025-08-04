@@ -5,6 +5,8 @@ import { FileDown } from 'lucide-react';
 import Link from 'next/link';
 import '../../filePage.css';
 import Script from 'next/script';
+import DownloadInstructions from '../../components/DownloadInstructions';
+
 
 type Props = {
   params: { id: string };
@@ -70,8 +72,9 @@ export default function FilePage({ params }: Props) {
             </div>
           )}
         </div>
-{/* 
-        <a href={fileUrl} download className="download-button">
+      <DownloadInstructions  fileType="video" />
+
+        {/* <a href={fileUrl} download className="download-button">
           <FileDown size={18} />
           <span>Download File</span>
         </a> */}
