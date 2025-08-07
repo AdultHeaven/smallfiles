@@ -49,10 +49,34 @@ export default function FilePage({ params }: Props) {
         <Link href="/" className="site-name">SmallFiles.fun</Link>
         <Link href="/" className="upload-cta">+ Upload File</Link>
       </header>
-
       {/* ==== MAIN CONTENT ==== */}
       <main className="file-wrapper">
-        <div className="preview-container">
+    <div className="desktop-only center-banner">
+        <a
+          href="https://t.mbsrv2.com/384478/9403/0?target=pops&file_id=613430&aff_sub5=SF_006OG000004lmDN&aff_sub4=AT_0002"
+          target="_blank"
+        >
+          <img
+            src="https://www.imglnkx.com/9403/ADV-1207_DESIGN-21652_72890_Mainstream.png"
+            width="728" height="90"
+            alt="ad"
+          />
+        </a>
+      </div>
+
+      <div className="mobile-only center-banner">
+        <a
+          href="https://t.mbsrv2.com/384478/9403/0?target=pops&file_id=613426&aff_sub5=SF_006OG000004lmDN&aff_sub4=AT_0002"
+          target="_blank"
+        >
+          <img
+            src="https://www.imglnkx.com/9403/ADV-1207_DESIGN-21652_300100_Mainstream.png"
+            width="300"
+            height="100"
+            alt="ad"
+          />
+        </a>
+      </div>      <div className="preview-container">
           {isPlayableVideo ? (
             <video controls className="media-preview">
               <source src={fileUrl} type={`video/${ext}`} />
@@ -73,7 +97,32 @@ export default function FilePage({ params }: Props) {
           )}
         </div>
       <DownloadInstructions  fileType="video" />
+    <div className="desktop-only center-banner">
+        <a
+          href="https://t.mbsrv2.com/384478/9403/0?target=pops&file_id=613419&aff_sub5=SF_006OG000004lmDN&aff_sub4=AT_0002"
+          target="_blank"
+        >
+          <img
+            src="https://www.imglnkx.com/9403/ADV-21652_DESIGN-21652_72890.jpg"
+            width="728" height="90"
+            alt="ad"
+          />
+        </a>
+      </div>
 
+      <div className="mobile-only center-banner">
+        <a
+          href="https://t.mbsrv2.com/384478/9403/0?target=pops&file_id=613422&aff_sub5=SF_006OG000004lmDN&aff_sub4=AT_0002"
+          target="_blank"
+        >
+          <img
+            src="https://www.imglnkx.com/9403/ADV-21652_DESIGN-21652_300100.jpg"
+            width="300"
+            height="100"
+            alt="ad"
+          />
+        </a>
+      </div>     
         {/* <a href={fileUrl} download className="download-button">
           <FileDown size={18} />
           <span>Download File</span>

@@ -272,3 +272,28 @@ html, body {
     transform: translateY(0) scale(1);
   }
 }
+
+
+  /* Hide on desktop */
+  .mobile-only {
+    display: none;
+  }
+
+  /* Show on desktop, hide on mobile */
+  .desktop-only {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-only {
+      display: block;
+    }
+    .desktop-only {
+      display: none;
+    }
+  }
+
+  .center-banner {
+    text-align: center;
+    margin: 20px auto;
+  }
