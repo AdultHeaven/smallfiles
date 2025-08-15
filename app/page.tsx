@@ -119,20 +119,33 @@ const handleUpload = async () => {
     <div className="page-wrapper">
       <main className="container">
         <h1 className="site-name">SmallFiles.fun</h1>
-        <p className="subtitle">
-          Free, Permanent Storage for Files under 10MB • No Logs • No Deletion
-        </p>
+        <div className="subtitle">
+          <div className="feature-badge">
+            <span className="icon">💾</span>
+            <span>10MB Free Storage</span>
+          </div>
+          <div className="feature-badge">
+            <span className="icon">🔒</span>
+            <span>No Logs</span>
+          </div>
+          <div className="feature-badge">
+            <span className="icon">♾️</span>
+            <span>Permanent</span>
+          </div>
+        </div>
 
-        <label className="upload-box">
-          <input type="file" hidden onChange={handleFileChange} />
-          {file ? <span title={file.name}>{file.name}</span> : <span>Click to Select a File</span>}
-        </label>
+        <div className="upload-section">
+          <label className={`upload-box ${file ? 'has-file' : ''}`}>
+            <input type="file" hidden onChange={handleFileChange} />
+            {file ? <span title={file.name}>{file.name}</span> : <span>Click to Select a File</span>}
+          </label>
 
-        {error && <div className="error">{error}</div>}
+          {error && <div className="error">{error}</div>}
 
-        <button className="upload-btn" disabled={!file || uploading} onClick={handleUpload}>
-          {uploading ? 'Uploading...' : 'Upload'}
-        </button>
+          <button className="upload-btn" disabled={!file || uploading} onClick={handleUpload}>
+            {uploading ? 'Uploading...' : 'Upload'}
+          </button>
+        </div>
 
    {uploading && (
   <div className="progress-box">
@@ -153,10 +166,15 @@ const handleUpload = async () => {
                 readOnly
                 onClick={(e) => (e.target as HTMLInputElement).select()}
               />
-              <button className="copy-btn" onClick={copyToClipboard} title="Copy Link">
-                <Copy size={18} />
-              </button>
-              <button className="share-btn" onClick={shareLink}>Share</button>
+              <div className="button-group">
+                <button className="copy-btn" onClick={copyToClipboard} title="Copy Link">
+                  <Copy size={18} />
+                  Copy
+                </button>
+                <button className="share-btn" onClick={shareLink}>
+                  📤 Share
+                </button>
+              </div>
             </div>
           </div>
         )}
