@@ -6,6 +6,7 @@ import Link from 'next/link';
 import '../../filePage.css';
 import Script from 'next/script';
 import DownloadInstructions from '../../components/DownloadInstructions';
+import AdBanner from '../../components/AdBanner';
 
 
 type Props = {
@@ -71,7 +72,9 @@ export default function FilePage({ params }: Props) {
             </div>
           )}
         </div>
+        <AdBanner/>
       <DownloadInstructions  fileType="video" />    
+ 
         {/* <a href={fileUrl} download className="download-button">
           <FileDown size={18} />
           <span>Download File</span>
