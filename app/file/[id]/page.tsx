@@ -7,6 +7,7 @@ import '../../filePage.css';
 import Script from 'next/script';
 import DownloadInstructions from '../../components/DownloadInstructions';
 import AdBanner from '../../components/AdBanner';
+import ConditionalPopup from '../../ConditionalPopup';
 
 
 type Props = {
@@ -31,16 +32,16 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="page-wrapper">
-
+<ConditionalPopup/>
          {/* <Script
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
       /> */}
-  <Script
+  {/* <Script
         id="juicyads-popunder"
         strategy="afterInteractive"
         src="https://js.juicyads.com/jp.php?c=4454y2z2t234u4r2o2f4436474&u=https%3A%2F%2Fwww.juicyads.rocks"
-      />
+      /> */}
 
 
       <Script
