@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "temporary file hosting",
     "privacy first file sharing",
     "send files",
-    "share files anonymously"
+    "share files anonymously",
   ],
   authors: [{ name: "SmallFiles.fun Team", url: "https://smallfiles.fun" }],
   metadataBase: new URL("https://smallfiles.fun"),
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://smallfiles.fun/icon.png",
+        url: "https://smallfiles.fun/favicon.ico",
         width: 1200,
         height: 630,
         alt: "SmallFiles.fun",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "SmallFiles.fun",
     description:
       "Fast and private file sharing with no registration required. Just upload and share.",
-    images: ["https://smallfiles.fun/icon.png"],
+    images: ["https://smallfiles.fun/favicon.ico"],
   },
   themeColor: "#000000",
 };
@@ -53,6 +53,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ JuicyAds Verification Meta */}
+        <meta
+          name="juicyads-site-verification"
+          content="1afa48bbdeed42d1aef7f0528a490eff"
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
