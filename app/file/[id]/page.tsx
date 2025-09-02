@@ -32,11 +32,11 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="page-wrapper">
-<ConditionalPopup/>
-         {/* <Script
+{/* <ConditionalPopup/> */}
+         <Script
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      /> */}
+      />
   {/* <Script
         id="juicyads-popunder"
         strategy="afterInteractive"
@@ -44,13 +44,13 @@ export default function FilePage({ params }: Props) {
       /> */}
 
 
-      <Script
+      {/* <Script
   src="//cdn.tsyndicate.com/sdk/v1/p.js"
   data-ts-spot="f0f128801be54eec98db0136d58d0583"
   strategy="afterInteractive"
   async
   defer
-/>
+/> */}
 
       {/* ==== HEADER ==== */}
       <header className="header">
