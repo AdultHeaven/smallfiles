@@ -7,7 +7,7 @@ import '../../filePage.css';
 import Script from 'next/script';
 import DownloadInstructions from '../../components/DownloadInstructions';
 import AdBanner from '../../components/AdBanner';
-import ConditionalPopup from '../../ConditionalPopup';
+import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
 
 
 type Props = {
@@ -38,11 +38,12 @@ export default function FilePage({ params }: Props) {
         strategy="afterInteractive" // Ensures it runs after hydration
       /> */}
 
-       <Script
+       {/* <Script
         src="https://tinysentgrowled.com/43/4b/c6/434bc6f3f3a3615a603923aca7a94e6e.js"
         strategy="afterInteractive"
-      />
-      
+      /> */}
+      <OneTimeAdAutoLoad />
+
   {/* <Script
         id="juicyads-popunder"
         strategy="afterInteractive"
