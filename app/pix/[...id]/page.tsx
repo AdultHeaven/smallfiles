@@ -137,13 +137,13 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="pf-root">
-      {/* <Script src="/mobilepopup.js" strategy="afterInteractive" /> */}
+      <Script src="/mobilepopup.js" strategy="afterInteractive" />
  {/* <Script
         src="https://tinysentgrowled.com/43/4b/c6/434bc6f3f3a3615a603923aca7a94e6e.js"
         strategy="afterInteractive"
       /> */}
 
-            <OneTimeAdAutoLoad />
+            {/* <OneTimeAdAutoLoad /> */}
 
       {/* Header */}
       <header className="pf-header pf-header-min">
