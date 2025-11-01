@@ -21,7 +21,7 @@ export default function AdBanner() {
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.src =
-      "//tinysentgrowled.com/6c660c59be65016ae4348790d15e4a62/invoke.js";
+      "//roomsmergeshipwreck.com/6c660c59be65016ae4348790d15e4a62/invoke.js";
 
     // Clear container before injecting
     adRef.current.innerHTML = "";
