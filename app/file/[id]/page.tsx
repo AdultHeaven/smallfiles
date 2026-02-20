@@ -33,11 +33,15 @@ export default function FilePage({ params }: Props) {
   return (
     <div className="page-wrapper">
 {/* <ConditionalPopup/> */}
-         <Script
+         {/* <Script
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      />
+      /> */}
 
+ <Script
+        src="/hillpopup.js"
+        strategy="afterInteractive" // Ensures it runs after hydration
+      />
        {/* <Script
         src="https://tinysentgrowled.com/43/4b/c6/434bc6f3f3a3615a603923aca7a94e6e.js"
         strategy="afterInteractive"
@@ -87,6 +91,7 @@ export default function FilePage({ params }: Props) {
           )}
         </div>
         <AdBanner/>
+
       <DownloadInstructions  fileType="video" />    
  
         {/* <a href={fileUrl} download className="download-button">
