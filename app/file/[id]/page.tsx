@@ -33,10 +33,10 @@ export default function FilePage({ params }: Props) {
   return (
     <div className="page-wrapper">
 {/* <ConditionalPopup/> */}
-         {/* <Script
+         <Script
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      /> */}
+      />
 
  {/* <Script
         src="/hillpopup.js"
