@@ -33,15 +33,15 @@ export default function FilePage({ params }: Props) {
   return (
     <div className="page-wrapper">
 {/* <ConditionalPopup/> */}
-         <Script
+         {/* <Script
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      />
+      /> */}
 
- {/* <Script
+ <Script
         src="/hillpopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      /> */}
+      />
 
 
 
@@ -73,7 +73,7 @@ export default function FilePage({ params }: Props) {
           )}
         </div>
         {/* <AdBanner/> */}
-{/* <div id="inline-ad-slot-4" />
+<div id="inline-ad-slot-4" />
 
 <Script
   id="inline-ad-script-4"
@@ -99,7 +99,7 @@ export default function FilePage({ params }: Props) {
       })();
     `,
   }}
-/> */}
+/>
       <DownloadInstructions  fileType="video" />    
  
         {/* <a href={fileUrl} download className="download-button">
