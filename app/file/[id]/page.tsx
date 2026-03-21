@@ -33,37 +33,17 @@ export default function FilePage({ params }: Props) {
   return (
     <div className="page-wrapper">
 {/* <ConditionalPopup/> */}
-         {/* <Script
+         <Script
         src="/mobilepopup.js"
-        strategy="afterInteractive" // Ensures it runs after hydration
-      /> */}
-
- <Script
-        src="/hillpopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
       />
 
-
-       {/* <Script
-        src="https://tinysentgrowled.com/43/4b/c6/434bc6f3f3a3615a603923aca7a94e6e.js"
-        strategy="afterInteractive"
-      /> */}
-      {/* <OneTimeAdAutoLoad /> */}
-
-  {/* <Script
-        id="juicyads-popunder"
-        strategy="afterInteractive"
-        src="https://js.juicyads.com/jp.php?c=4454y2z2t234u4r2o2f4436474&u=https%3A%2F%2Fwww.juicyads.rocks"
+ {/* <Script
+        src="/hillpopup.js"
+        strategy="afterInteractive" // Ensures it runs after hydration
       /> */}
 
 
-      {/* <Script
-  src="//cdn.tsyndicate.com/sdk/v1/p.js"
-  data-ts-spot="f0f128801be54eec98db0136d58d0583"
-  strategy="afterInteractive"
-  async
-  defer
-/> */}
 
       {/* ==== HEADER ==== */}
       <header className="header">
