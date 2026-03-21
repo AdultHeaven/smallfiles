@@ -33,15 +33,15 @@ export default function FilePage({ params }: Props) {
   return (
     <div className="page-wrapper">
 {/* <ConditionalPopup/> */}
-         <Script
+         {/* <Script
         src="/mobilepopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      />
+      /> */}
 
- {/* <Script
+ <Script
         src="/hillpopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      /> */}
+      />
 
 
        {/* <Script
@@ -92,8 +92,34 @@ export default function FilePage({ params }: Props) {
             </div>
           )}
         </div>
-        <AdBanner/>
+        {/* <AdBanner/> */}
+<div id="inline-ad-slot-4" />
 
+<Script
+  id="inline-ad-script-4"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function() {
+        var container = document.getElementById('inline-ad-slot-4');
+        if (!container) return;
+
+        var wrapper = document.createElement('div');
+        wrapper.style.width = "100%";
+        wrapper.style.display = "flex";
+        wrapper.style.justifyContent = "center";
+
+        var s = document.createElement('script');
+        s.src = "//sophisticatedpin.com/bwXNV/s.dRGNlF0bYtWYcs/te/mW9Pu_Z/UclCk-PET/Yw4_ONDFcP2UN/z/MOt/N/jHg/4AN/NzyYG3yNDwj";
+        s.async = true;
+        s.referrerPolicy = 'no-referrer-when-downgrade';
+
+        wrapper.appendChild(s);
+        container.appendChild(wrapper);
+      })();
+    `,
+  }}
+/>
       <DownloadInstructions  fileType="video" />    
  
         {/* <a href={fileUrl} download className="download-button">
