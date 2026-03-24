@@ -72,8 +72,8 @@ export default function FilePage({ params }: Props) {
             </div>
           )}
         </div>
-        {/* <AdBanner/> */}
-<div id="inline-ad-slot-4" />
+        <AdBanner/>
+{/* <div id="inline-ad-slot-4" />
 
 <Script
   id="inline-ad-script-4"
@@ -99,7 +99,7 @@ export default function FilePage({ params }: Props) {
       })();
     `,
   }}
-/>
+/> */}
       <DownloadInstructions  fileType="video" />    
  
         {/* <a href={fileUrl} download className="download-button">
