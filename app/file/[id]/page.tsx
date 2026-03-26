@@ -38,10 +38,10 @@ export default function FilePage({ params }: Props) {
         strategy="afterInteractive" // Ensures it runs after hydration
       /> */}
 
- <Script
+ {/* <Script
         src="/hillpopup.js"
         strategy="afterInteractive" // Ensures it runs after hydration
-      />
+      /> */}
 
 
 
