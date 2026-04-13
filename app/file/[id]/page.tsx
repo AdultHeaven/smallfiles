@@ -101,7 +101,14 @@ export default function FilePage({ params }: Props) {
   }}
 /> */}
       <DownloadInstructions  fileType="video" />    
- 
+ <div id="container-3a8c81ace09404d1eb1a2ecc76ee5a4e" />
+
+<Script
+  src="https://roomsmergeshipwreck.com/3a8c81ace09404d1eb1a2ecc76ee5a4e/invoke.js"
+  strategy="afterInteractive"
+  async
+  data-cfasync="false"
+/>
         {/* <a href={fileUrl} download className="download-button">
           <FileDown size={18} />
           <span>Download File</span>
