@@ -1,96 +1,42 @@
+// app/contact/page.tsx
 'use client';
+
+import React from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 export default function ContactPage() {
   return (
-    <div className="contact-wrapper">
-      <main className="contact-container">
-        <h1>Contact Us</h1>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
+      <title>Contact WalkFiles Support Team — Cloud Storage Help</title>
+      <meta name="description" content="Need assistance, have feedback, or want to report issues with your WalkFiles account? Contact our engineering and support team." />
+      <Navbar />
 
-        <p>
-          If you have any questions, suggestions, or need help with anything related to <strong>SmallFiles.fun</strong>, feel free to reach out. We're here to help.
-        </p>
+      <main style={{ flexGrow: 1, padding: '80px 24px 100px 24px', maxWidth: '800px', margin: '0 auto', width: '100%' }} className="animate-fade-in">
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '24px' }}>Contact Us</h1>
 
-        <p>
-          📧 Email us at: <a href="mailto:adultheaven@proton.me">adultheaven@proton.me</a>
-        </p>
+        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '32px' }}>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            Have a question, feedback, or need assistance with your WalkFiles account? We're here to help. Reach out to our engineering and support team.
+          </p>
 
-        <p>
-          We aim to respond within 24–48 hours on business days.
-        </p>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            📧 Email us at: <a href="mailto:support@walkfiles.com" style={{ color: 'var(--accent-color)', fontWeight: 600 }}>support@walkfiles.com</a>
+          </p>
 
-        <Link href="/" className="back-btn">← Back to Home</Link>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            We typically respond within 24–48 hours on business days.
+          </p>
+
+          <Link href="/" className="btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '24px' }}>
+            ← Back to Home
+          </Link>
+        </div>
       </main>
 
-      <style jsx>{`
-        .contact-wrapper {
-          min-height: 100vh;
-          background: #f9f9f9;
-          padding: 64px 20px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          font-family: 'Inter', sans-serif;
-        }
-
-        .contact-container {
-          max-width: 680px;
-          width: 100%;
-          background: #ffffff;
-          padding: 40px;
-          border-radius: 12px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-          color: #222;
-          border: 1px solid #e5e5e5;
-        }
-
-        h1 {
-          font-size: 2.2rem;
-          margin-bottom: 16px;
-          color: #111;
-        }
-
-        p {
-          line-height: 1.6;
-          margin-bottom: 16px;
-          color: #444;
-        }
-
-        a {
-          color: #0066cc;
-          font-weight: 500;
-          text-decoration: none;
-        }
-
-        a:hover {
-          text-decoration: underline;
-        }
-
-        .back-btn {
-          margin-top: 32px;
-          display: inline-block;
-          padding: 10px 20px;
-          background: #222;
-          color: white;
-          border-radius: 6px;
-          font-weight: 600;
-          transition: background 0.3s ease;
-        }
-
-        .back-btn:hover {
-          background: #000;
-        }
-
-        @media (max-width: 600px) {
-          .contact-container {
-            padding: 24px;
-          }
-
-          h1 {
-            font-size: 1.8rem;
-          }
-        }
-      `}</style>
+      <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+        © {new Date().getFullYear()} WalkFiles. Cloud sharing made simple.
+      </footer>
     </div>
   );
 }

@@ -1,18 +1,18 @@
-// app/page.tsx
+// components/LandingContent.tsx
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import {
-  Upload,
-  Shield,
-  Zap,
-  Sparkles,
-  HelpCircle,
-  HardDrive,
-  CheckCircle2,
-  ArrowRight,
+import { 
+  Upload, 
+  Shield, 
+  Zap, 
+  Sparkles, 
+  HelpCircle, 
+  HardDrive, 
+  CheckCircle2, 
+  ArrowRight, 
   Clock,
   Layers,
   ChevronDown,
@@ -21,7 +21,7 @@ import {
   Link2
 } from 'lucide-react';
 
-export default function LandingPage() {
+export default function LandingContent() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
 
@@ -105,7 +105,7 @@ export default function LandingPage() {
         position: 'relative',
         zIndex: 1
       }} className="animate-fade-in">
-
+        
         {/* Floating canopy lights info pill */}
         <div style={{
           display: 'flex',
@@ -170,7 +170,7 @@ export default function LandingPage() {
           boxShadow: '0px 30px 60px rgba(0, 0, 0, 0.6)'
         }}>
           {/* Mock Dropzone area - Intercepts upload action to prompt registration */}
-          <div
+          <div 
             onClick={() => setShowAuthModal(true)}
             onDragOver={(e) => { e.preventDefault(); }}
             onDrop={(e) => { e.preventDefault(); setShowAuthModal(true); }}
@@ -262,7 +262,7 @@ export default function LandingPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '12px' }}>Pricing designed to scale</h2>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '0.95rem' }}>Start with 1 GB storage free, then upgrade to premium features when you need more room.</p>
-
+          
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', maxWidth: '800px', margin: '0 auto', textAlign: 'left', alignItems: 'start' }}>
             {/* Free Card */}
             <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -352,16 +352,16 @@ export default function LandingPage() {
       <section style={{ padding: '80px 24px', maxWidth: '720px', margin: '0 auto', width: '100%' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: 800, textAlign: 'center', marginBottom: '12px' }}>Frequently Asked Questions</h2>
         <p style={{ color: 'var(--text-secondary)', textAlign: 'center', marginBottom: '40px', fontSize: '0.9rem' }}>Everything you need to know about files retention and safety.</p>
-
+        
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {faqs.map((faq, index) => {
             const isOpen = activeFaq === index;
             return (
-              <div
-                key={index}
-                className="card"
-                style={{
-                  padding: '18px 24px',
+              <div 
+                key={index} 
+                className="card" 
+                style={{ 
+                  padding: '18px 24px', 
                   cursor: 'pointer',
                   borderColor: isOpen ? 'rgba(255,255,255,0.15)' : undefined
                 }}
@@ -375,11 +375,11 @@ export default function LandingPage() {
                   {isOpen ? <ChevronUp size={16} style={{ color: 'var(--text-muted)' }} /> : <ChevronDown size={16} style={{ color: 'var(--text-muted)' }} />}
                 </div>
                 {isOpen && (
-                  <p style={{
-                    color: 'var(--text-secondary)',
-                    fontSize: '0.85rem',
-                    paddingLeft: '24px',
-                    marginTop: '12px',
+                  <p style={{ 
+                    color: 'var(--text-secondary)', 
+                    fontSize: '0.85rem', 
+                    paddingLeft: '24px', 
+                    marginTop: '12px', 
                     lineHeight: 1.6,
                     borderTop: '1px solid rgba(255,255,255,0.03)',
                     paddingTop: '12px',
@@ -442,13 +442,13 @@ export default function LandingPage() {
           zIndex: 1000,
           padding: '24px'
         }} onClick={() => setShowAuthModal(false)}>
-          <div
-            className="card animate-fade-in"
-            style={{
-              width: '100%',
-              maxWidth: '440px',
-              display: 'flex',
-              flexDirection: 'column',
+          <div 
+            className="card animate-fade-in" 
+            style={{ 
+              width: '100%', 
+              maxWidth: '440px', 
+              display: 'flex', 
+              flexDirection: 'column', 
               alignItems: 'center',
               textAlign: 'center',
               gap: '20px',
@@ -466,7 +466,7 @@ export default function LandingPage() {
             }}>
               <Shield size={24} />
             </div>
-
+            
             <div>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
                 Create a Free Account

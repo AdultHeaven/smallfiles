@@ -1,128 +1,51 @@
-'use client';
+import React from 'react';
 import Link from 'next/link';
-
+import Navbar from '@/components/Navbar';
 export default function DmcaPage() {
   return (
-    <div className="dmca-wrapper">
-      <main className="dmca-container">
-        <h1>DMCA Takedown Policy</h1>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
+      <Navbar />
 
-        <p>
-          At <strong>SmallFiles.fun</strong>, we take copyright infringement seriously. Our platform allows users to upload and share content, and while we encourage creativity and freedom, we do not tolerate unauthorized use of copyrighted material.
-        </p>
+      <main style={{ flexGrow: 1, padding: '80px 24px 100px 24px', maxWidth: '800px', margin: '0 auto', width: '100%' }} className="animate-fade-in">
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '24px' }}>DMCA Takedown Policy</h1>
 
-        <p>
-          If you believe any file uploaded to our site infringes your copyright, we’re here to help. We will take prompt action to remove such content upon receiving a valid DMCA notice.
-        </p>
+        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '32px' }}>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            At <strong>WalkFiles</strong>, we respect intellectual property rights and take copyright infringement seriously. Our platform allows registered users to upload and share content, and we expect all users to comply with copyright laws.
+          </p>
 
-        <h2>📧 Where to Send Your Request</h2>
-        <p>
-          Please email your takedown request to: <a href="mailto:adultheaven@proton.me">adultheaven@proton.me</a>
-        </p>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            If you believe any file hosted on WalkFiles infringes upon your copyright, you may submit a takedown request. We will review and act upon all valid DMCA notices promptly.
+          </p>
 
-        <h3>📝 What to Include in Your Email</h3>
-        <ul>
-          <li>Your full name and a valid email address</li>
-          <li>URLs of the infringing content hosted on our site</li>
-          <li>Description of the original copyrighted work</li>
-          <li>A statement that you believe in good faith the use is unauthorized</li>
-          <li>A declaration that the information you’re providing is accurate</li>
-          <li>Your electronic signature</li>
-        </ul>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginTop: '16px' }}>📧 Submit Your Request</h2>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            Please email your detailed takedown notice to: <a href="mailto:copyright@walkfiles.com" style={{ color: 'var(--accent-color)' }}>copyright@walkfiles.com</a>
+          </p>
 
-        <p>
-          We review all requests carefully. If the content violates copyright law, it will be promptly removed.
-        </p>
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginTop: '16px' }}>📝 Required Information</h3>
+          <ul style={{ paddingLeft: '20px', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <li>Your full legal name, physical address, and contact information.</li>
+            <li>Specific URLs of the WalkFiles download links containing the alleged infringing content.</li>
+            <li>A detailed description of the copyrighted work that has been infringed.</li>
+            <li>A good faith statement asserting that the use of the material is not authorized by the copyright owner.</li>
+            <li>A declaration, under penalty of perjury, that the information in the notice is accurate.</li>
+            <li>An electronic or physical signature of the copyright owner or authorized representative.</li>
+          </ul>
 
-        <Link href="/" className="back-btn">← Back to Home</Link>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '16px' }}>
+            Please note that submitting false or malicious takedown requests may result in civil liability or account termination.
+          </p>
+
+          <Link href="/" className="btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '24px' }}>
+            ← Back to Home
+          </Link>
+        </div>
       </main>
 
-      <style jsx>{`
-        .dmca-wrapper {
-          min-height: 100vh;
-          background: #f9f9f9;
-          padding: 64px 20px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          font-family: 'Inter', sans-serif;
-        }
-
-        .dmca-container {
-          max-width: 720px;
-          width: 100%;
-          background: #ffffff;
-          border: 1px solid #e5e5e5;
-          padding: 40px;
-          border-radius: 12px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-          color: #222;
-        }
-
-        h1 {
-          font-size: 2.4rem;
-          margin-bottom: 16px;
-          color: #111;
-        }
-
-        h2, h3 {
-          color: #333;
-          font-size: 1.25rem;
-          margin-top: 32px;
-          margin-bottom: 12px;
-        }
-
-        p {
-          line-height: 1.6;
-          margin-bottom: 16px;
-          color: #444;
-        }
-
-        ul {
-          padding-left: 20px;
-          margin-bottom: 24px;
-          color: #444;
-        }
-
-        li {
-          margin-bottom: 10px;
-        }
-
-        a {
-          color: #0066cc;
-          text-decoration: none;
-          font-weight: 500;
-        }
-
-        a:hover {
-          text-decoration: underline;
-        }
-
-        .back-btn {
-          margin-top: 32px;
-          display: inline-block;
-          padding: 10px 20px;
-          background: #222;
-          color: white;
-          border-radius: 6px;
-          font-weight: 600;
-          transition: background 0.3s ease;
-        }
-
-        .back-btn:hover {
-          background: #000;
-        }
-
-        @media (max-width: 600px) {
-          .dmca-container {
-            padding: 24px;
-          }
-
-          h1 {
-            font-size: 1.8rem;
-          }
-        }
-      `}</style>
+      <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+        © {new Date().getFullYear()} WalkFiles. Cloud sharing made simple.
+      </footer>
     </div>
   );
 }

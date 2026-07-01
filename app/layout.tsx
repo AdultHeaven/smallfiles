@@ -1,49 +1,72 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { ToastProvider } from "../context/ToastContext";
+import "../styles/walkfiles.css";
 import "./app.css";
 
-const inter = Inter({ subsets: ["latin"] });
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
 
 export const metadata: Metadata = {
-  title: "SmallFiles.fun — Private & Fast File Sharing",
+  title: {
+    default: "WalkFiles - Private, High-Speed & Secure File Sharing",
+    template: "%s | WalkFiles"
+  },
   description:
-    "Upload and share small files securely without registration. No tracking, no clutter — just simple and fast file sharing. Perfect for temporary sharing under 100MB.",
+    "Upload and share files privately with high-speed direct browser uploads. WalkFiles offers secure cloud storage, folder sharing, and native media previews with zero activity tracking.",
   keywords: [
     "file sharing",
     "free file upload",
-    "small files",
+    "walkfiles",
     "secure file transfer",
     "temporary file hosting",
     "privacy first file sharing",
     "send files",
-    "share files anonymously",
+    "cloud storage",
+    "direct upload",
+    "gofile alternative",
+    "pixeldrain alternative",
+    "cloudflare r2",
+    "anonymous upload",
+    "video sharing",
+    "folder preview"
   ],
-  authors: [{ name: "SmallFiles.fun Team", url: "https://smallfiles.fun" }],
-  metadataBase: new URL("https://smallfiles.fun"),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  authors: [{ name: "WalkFiles Team", url: "https://walkfiles.fun" }],
+  metadataBase: new URL("https://walkfiles.fun"),
   openGraph: {
-    title: "SmallFiles.fun — Share Files Privately",
+    title: "WalkFiles — Private & Fast File Sharing",
     description:
-      "Simple, fast, and private file sharing under 100MB. No accounts. No spam. Just upload and share.",
-    url: "https://smallfiles.fun",
-    siteName: "SmallFiles.fun",
+      "Upload and share folders, documents, images, and videos securely up to 1 GB for free. Powered by direct Cloudflare R2 browser uploads.",
+    url: "https://walkfiles.fun",
+    siteName: "WalkFiles",
     type: "website",
     images: [
       {
-        url: "https://smallfiles.fun/favicon.ico",
+        url: "https://walkfiles.fun/favicon.ico",
         width: 1200,
         height: 630,
-        alt: "SmallFiles.fun",
+        alt: "WalkFiles Secure File Hosting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SmallFiles.fun",
+    title: "WalkFiles — Private & Fast File Sharing",
     description:
-      "Fast and private file sharing with no registration required. Just upload and share.",
-    images: ["https://smallfiles.fun/favicon.ico"],
+      "Upload and share files securely with zero speed limits and native browser media previews.",
+    images: ["https://walkfiles.fun/favicon.ico"],
   },
-  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -60,7 +83,11 @@ export default function RootLayout({
           content="1afa48bbdeed42d1aef7f0528a490eff"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>
+        <ToastProvider>
+          {children}
+        </ToastProvider>
+      </body>
     </html>
   );
 }
