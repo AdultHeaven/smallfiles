@@ -551,12 +551,15 @@ h6 {
   .app-container {
     flex-direction: column;
   }
+
   .sidebar {
     display: none !important;
   }
+
   .main-content {
     padding: 24px 16px 88px 16px;
   }
+
   .mobile-bottom-nav {
     display: flex;
     position: fixed;
@@ -574,6 +577,7 @@ h6 {
     padding-bottom: env(safe-area-inset-bottom);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
   }
+
   .mobile-nav-link {
     display: flex;
     flex-direction: column;
@@ -586,6 +590,7 @@ h6 {
     height: 100%;
     transition: all 0.2s ease;
   }
+
   .mobile-nav-link.active {
     color: var(--text-primary);
   }
