@@ -28,10 +28,6 @@ export default function FilePage({ params }: Props) {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
       <title>{id} — WalkFiles Preview</title>
-      <Script
-        src="/mobilepopup.js"
-        strategy="afterInteractive"
-      />
 
       {/* ==== HEADER ==== */}
       <Navbar />
