@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { validateEvent, WebhookVerificationError } from '@polar-sh/sdk/webhooks';
-import { createAdminClient } from '../../../lib/supabase/admin';
+import { createAdminClient } from '../../../../lib/supabase/admin';
 
 export const dynamic = 'force-dynamic';
 

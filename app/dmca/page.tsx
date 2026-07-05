@@ -2,13 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { 
-  ShieldAlert, 
-  Mail, 
-  FileText, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ChevronLeft, 
+import {
+  ShieldAlert,
+  Mail,
+  FileText,
+  CheckCircle2,
+  AlertTriangle,
+  ChevronLeft,
   Copyright,
   ExternalLink
 } from 'lucide-react';
@@ -21,7 +21,7 @@ export default function DmcaPage() {
       <Navbar isMinimal={true} />
 
       <main style={{ flexGrow: 1, padding: '60px 24px 100px 24px', maxWidth: '800px', margin: '0 auto', width: '100%' }} className="animate-fade-in">
-        
+
         {/* Breadcrumb / Back Button */}
         <Link href="/" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 12px', fontSize: '0.8rem', borderRadius: 'var(--radius-sm)', marginBottom: '32px', textDecoration: 'none' }}>
           <ChevronLeft size={14} />
@@ -30,14 +30,14 @@ export default function DmcaPage() {
 
         {/* Title Section */}
         <div style={{ marginBottom: '40px', textAlign: 'center' }}>
-          <div style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            width: '48px', 
-            height: '48px', 
-            borderRadius: '50%', 
-            backgroundColor: 'rgba(99, 102, 241, 0.08)', 
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '48px',
+            height: '48px',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(99, 102, 241, 0.08)',
             color: 'var(--accent-color)',
             marginBottom: '16px',
             border: '1px solid rgba(99, 102, 241, 0.15)'
@@ -54,7 +54,7 @@ export default function DmcaPage() {
 
         {/* Main Content Box */}
         <div className="card shadow-premium" style={{ display: 'flex', flexDirection: 'column', gap: '32px', padding: '40px' }}>
-          
+
           {/* Paragraph Section */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
@@ -66,13 +66,13 @@ export default function DmcaPage() {
           </div>
 
           {/* Submission Info Box */}
-          <div style={{ 
-            display: 'flex', 
+          <div style={{
+            display: 'flex',
             flexDirection: 'column',
             gap: '16px',
-            backgroundColor: 'rgba(255, 255, 255, 0.01)', 
-            border: '1px solid var(--border-color)', 
-            borderRadius: 'var(--radius-lg)', 
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
+            border: '1px solid var(--border-color)',
+            borderRadius: 'var(--radius-lg)',
             padding: '24px'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -84,8 +84,8 @@ export default function DmcaPage() {
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Email Agent:</span>
-              <a 
-                href="mailto:copyright@walkfiles.com" 
+              <a
+                href="mailto:copyright@walkfiles.com"
                 className="mailto-badge"
               >
                 <span>copyright@walkfiles.com</span>
@@ -100,7 +100,7 @@ export default function DmcaPage() {
               <div style={{ color: 'var(--warning-color)', display: 'flex' }}><FileText size={18} /></div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--text-primary)' }}>DMCA Notice Requirements</h3>
             </div>
-            
+
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
               {[
                 { title: 'Contact Information', desc: 'Your full legal name, physical mailing address, phone number, and professional email address.' },
@@ -110,12 +110,12 @@ export default function DmcaPage() {
                 { title: 'Perjury Statement', desc: 'A statement, made under penalty of perjury, that the information in the notice is completely accurate and you are the copyright holder or authorized to act on their behalf.' },
                 { title: 'Signature', desc: 'An electronic or physical signature of the copyright owner or their authorized legal agent.' },
               ].map((item, idx) => (
-                <div key={idx} style={{ 
-                  display: 'flex', 
-                  gap: '14px', 
-                  padding: '16px', 
-                  backgroundColor: 'rgba(255, 255, 255, 0.01)', 
-                  borderRadius: 'var(--radius-md)', 
+                <div key={idx} style={{
+                  display: 'flex',
+                  gap: '14px',
+                  padding: '16px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.01)',
+                  borderRadius: 'var(--radius-md)',
                   border: '1px solid rgba(255,255,255,0.02)'
                 }}>
                   <div style={{ color: 'var(--success-color)', display: 'flex', marginTop: '2px' }}><CheckCircle2 size={16} /></div>
@@ -129,12 +129,12 @@ export default function DmcaPage() {
           </div>
 
           {/* Legal Warning Notice */}
-          <div style={{ 
-            display: 'flex', 
-            gap: '14px', 
-            padding: '16px', 
-            backgroundColor: 'rgba(239, 68, 68, 0.03)', 
-            border: '1px solid rgba(239, 68, 68, 0.1)', 
+          <div style={{
+            display: 'flex',
+            gap: '14px',
+            padding: '16px',
+            backgroundColor: 'rgba(239, 68, 68, 0.03)',
+            border: '1px solid rgba(239, 68, 68, 0.1)',
             borderRadius: 'var(--radius-md)',
             alignItems: 'flex-start'
           }}>
@@ -156,7 +156,8 @@ export default function DmcaPage() {
       </footer>
 
       {/* Embedded Styles */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .mailto-badge {
           display: inline-flex;
           align-items: center;

@@ -180,7 +180,7 @@ export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDeta
 
         {/* Right Side: Meta-Information & Actions */}
         <div className="sidebar-pane">
-          
+
           {/* Desktop details card */}
           <div className="card shadow-premium sidebar-card desktop-only-card">
             {/* File Info */}
