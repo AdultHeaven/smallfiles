@@ -243,17 +243,11 @@ export default function LandingPage() {
             }}>Share with confidence.</span>
           </h1>
 
-          <p style={{
-            fontSize: '1.05rem',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.6,
-            maxWidth: '520px',
-            margin: '8px 0 12px 0'
-          }}>
+          <p className="hero-subtitle">
             The premier high-speed Pixeldrain and Gofile alternative. Securely host, transfer, and share files or folders up to 1 GB completely free. Includes native media previews and zero download limits.
           </p>
 
-          <div style={{ display: 'flex', gap: '12px', marginTop: '10px', flexWrap: 'wrap' }}>
+          <div className="hero-cta-group">
             <Link href="/register" className="sb-btn-primary">
               Start Uploading Free
             </Link>
@@ -289,15 +283,15 @@ export default function LandingPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
               {/* Row 1 */}
               <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.03)', textAlign: 'left' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  width: '32px', 
-                  height: '32px', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(16, 185, 129, 0.08)', 
-                  color: '#10b981', 
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(16, 185, 129, 0.08)',
+                  color: '#10b981',
                   flexShrink: 0,
                   border: '1px solid rgba(16, 185, 129, 0.15)'
                 }}>
@@ -313,15 +307,15 @@ export default function LandingPage() {
 
               {/* Row 2 */}
               <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.03)', textAlign: 'left' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  width: '32px', 
-                  height: '32px', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(59, 130, 246, 0.08)', 
-                  color: '#3b82f6', 
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(59, 130, 246, 0.08)',
+                  color: '#3b82f6',
                   flexShrink: 0,
                   border: '1px solid rgba(59, 130, 246, 0.15)'
                 }}>
@@ -337,15 +331,15 @@ export default function LandingPage() {
 
               {/* Row 3 */}
               <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', textAlign: 'left' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  width: '32px', 
-                  height: '32px', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(168, 85, 247, 0.08)', 
-                  color: '#a855f7', 
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(168, 85, 247, 0.08)',
+                  color: '#a855f7',
                   flexShrink: 0,
                   border: '1px solid rgba(168, 85, 247, 0.15)'
                 }}>

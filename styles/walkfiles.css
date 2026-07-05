@@ -955,22 +955,27 @@ h6 {
 @media (max-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr !important;
-    gap: 30px !important;
-    text-align: center !important;
-    padding: 80px 16px 40px 16px !important;
+    gap: 32px !important;
+    text-align: left !important;
+    padding: 60px 24px 30px 24px !important;
   }
 
   .hero-container>div {
-    align-items: center !important;
-    text-align: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
 
   .hero-container h1 {
-    text-align: center !important;
+    text-align: left !important;
+    font-size: clamp(2rem, 8vw, 2.75rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em !important;
   }
 
   .hero-right-col {
     padding-top: 0 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
   }
 }
 
@@ -1210,7 +1215,7 @@ h6 {
   .info-page-main {
     padding: 50px 16px 80px 16px;
   }
-  
+
   .info-page-header {
     margin-bottom: 32px;
   }
@@ -1272,7 +1277,27 @@ h6 {
     padding: 20px;
     gap: 14px;
   }
+
   .contact-form-card {
     padding: 24px;
+  }
+}
+
+/* --- Hero Subtitle Paragraph --- */
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 12px 0 20px 0;
+}
+
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+    margin: 12px 0 20px 0 !important;
+    text-align: left !important;
   }
 }
