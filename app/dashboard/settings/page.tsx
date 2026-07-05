@@ -9,6 +9,7 @@ import { Shield, KeyRound, CheckCircle2, Loader2, HardDrive, FileClock } from 'l
 interface ProfileDetails {
   email: string;
   storage_used: number;
+  plan_id: string;
   plan: {
     name: string;
     storage_limit: number;
