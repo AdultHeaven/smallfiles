@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { createClient } from '../../../lib/supabase/client';
 import { Shield, KeyRound, CheckCircle2, Loader2, HardDrive, FileClock } from 'lucide-react';
 
@@ -96,9 +97,37 @@ export default function SettingsPage() {
         <p style={{ color: 'var(--text-secondary)' }}>Manage your profile limits and security settings.</p>
       </div>
 
-      {loading ? (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '32px' }}>
-          <Loader2 size={24} className="animate-spin" style={{ color: 'var(--text-muted)' }} />
+       {loading ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%' }}>
+          {/* Skeleton Plan Details Card */}
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div className="skeleton" style={{ width: '20px', height: '20px' }} />
+              <div className="skeleton" style={{ width: '180px', height: '20px' }} />
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '8px' }}>
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div className="skeleton" style={{ width: '100px', height: '14px' }} />
+                  <div className="skeleton" style={{ width: '140px', height: '22px' }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Skeleton Update Password Card */}
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '20px', opacity: 0.6 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div className="skeleton" style={{ width: '20px', height: '20px' }} />
+              <div className="skeleton" style={{ width: '150px', height: '20px' }} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div className="skeleton" style={{ width: '100%', height: '40px', borderRadius: 'var(--radius-md)' }} />
+              <div className="skeleton" style={{ width: '100%', height: '40px', borderRadius: 'var(--radius-md)' }} />
+              <div className="skeleton" style={{ width: '120px', height: '36px', borderRadius: 'var(--radius-md)' }} />
+            </div>
+          </div>
         </div>
       ) : (
         <>
@@ -113,7 +142,40 @@ export default function SettingsPage() {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '8px' }}>
                 <div>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Current Plan</span>
-                  <p style={{ fontSize: '1.1rem', fontWeight: 700, marginTop: '4px' }}>{profile.plan.name}</p>
+                  <p style={{ fontSize: '1.1rem', fontWeight: 700, marginTop: '4px', marginBottom: 0 }}>{profile.plan.name}</p>
+                  <div style={{ display: 'flex', gap: '8px', marginTop: '10px', flexWrap: 'wrap' }}>
+                    {profile.plan_id.toLowerCase() !== 'elite' && (
+                      <Link 
+                        href="/pricing" 
+                        className="btn btn-primary"
+                        style={{ 
+                          fontSize: '0.7rem', 
+                          padding: '6px 12px',
+                          textDecoration: 'none',
+                          borderRadius: 'var(--radius-sm)'
+                        }}
+                      >
+                        Upgrade Plan
+                      </Link>
+                    )}
+                    {profile.plan_id.toLowerCase() !== 'free' && (
+                      <a 
+                        href={process.env.NEXT_PUBLIC_POLAR_PORTAL_URL || 'https://polar.sh/walkfiles/portal'} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                        style={{ 
+                          fontSize: '0.7rem', 
+                          padding: '6px 12px',
+                          borderColor: 'rgba(244, 63, 94, 0.2)',
+                          color: 'var(--error-color)',
+                          borderRadius: 'var(--radius-sm)'
+                        }}
+                      >
+                        Cancel Plan
+                      </a>
+                    )}
+                  </div>
                 </div>
                 <div>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Storage Used</span>

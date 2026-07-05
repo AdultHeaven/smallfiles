@@ -4,15 +4,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { LayoutDashboard, UploadCloud, FolderClosed, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, UploadCloud, FolderClosed, Settings, LogOut, Sparkles } from 'lucide-react';
 import { createClient } from '../lib/supabase/client';
 
 interface SidebarProps {
   storageUsed: number; // in bytes
   storageLimit: number; // in bytes
+  planId?: string;
 }
 
-export default function Sidebar({ storageUsed, storageLimit }: SidebarProps) {
+export default function Sidebar({ storageUsed, storageLimit, planId = 'free' }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const supabase = createClient();
@@ -88,6 +89,38 @@ export default function Sidebar({ storageUsed, storageLimit }: SidebarProps) {
           </ul>
 
           <div className="sidebar-footer">
+            {/* Upgrade Plan Callout Card */}
+            {planId.toLowerCase() !== 'elite' && (
+              <div style={{
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%)',
+                border: '1px solid rgba(139, 92, 246, 0.15)',
+                padding: '16px',
+                borderRadius: 'var(--radius-md)',
+                marginBottom: '20px',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  right: '-20px',
+                  width: '60px',
+                  height: '60px',
+                  background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)',
+                }} />
+                <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: '#ffffff', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-display)' }}>
+                  <Sparkles size={13} style={{ color: '#a78bfa' }} />
+                  Upgrade Plan
+                </h4>
+                <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '10px', lineHeight: 1.3 }}>
+                  Unlock larger limits & faster downloads.
+                </p>
+                <Link href="/pricing" className="btn btn-primary" style={{ width: '100%', padding: '6px 12px', fontSize: '0.7rem', textDecoration: 'none', borderRadius: 'var(--radius-sm)' }}>
+                  Upgrade Now
+                </Link>
+              </div>
+            )}
+
             {/* Storage Capacity Indicator */}
             <div style={{ marginBottom: '24px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>

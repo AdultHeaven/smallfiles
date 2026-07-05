@@ -1,22 +1,25 @@
-// app/download/[id]/page.tsx
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { FileRepository } from '../../../repositories/file.repository';
-import DownloadDetails from './DownloadDetails';
+import ShortLinkDetails from './ShortLinkDetails';
 import Navbar from '@/components/Navbar';
 
 export const dynamic = 'force-dynamic';
 
 interface PageProps {
   params: {
-    id: string;
+    code: string;
   };
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const fileRepo = new FileRepository();
-  const file = await fileRepo.getFileById(params.id);
+  // Fetch by short code first, fallback to UUID lookup just in case
+  let file = await fileRepo.getFileByShortCode(params.code);
+  if (!file) {
+    file = await fileRepo.getFileById(params.code);
+  }
 
   if (!file) {
     return {
@@ -37,9 +40,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function DownloadPage({ params }: PageProps) {
+export default async function ShortLinkPage({ params }: PageProps) {
   const fileRepo = new FileRepository();
-  const file = await fileRepo.getFileById(params.id);
+  // Fetch by short code first, fallback to UUID lookup just in case
+  let file = await fileRepo.getFileByShortCode(params.code);
+  if (!file) {
+    file = await fileRepo.getFileById(params.code);
+  }
 
   if (!file) {
     notFound();
@@ -59,7 +66,7 @@ export default async function DownloadPage({ params }: PageProps) {
       <Navbar isMinimal={true} />
 
       <main style={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
-        <DownloadDetails file={file} downloadUrl={downloadUrl} />
+        <ShortLinkDetails file={file} downloadUrl={downloadUrl} />
       </main>
 
       <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>

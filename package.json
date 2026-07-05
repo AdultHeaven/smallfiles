@@ -12,6 +12,7 @@
     "@aws-amplify/ui-react": "^6.5.5",
     "@aws-sdk/client-s3": "^3.1077.0",
     "@aws-sdk/s3-request-presigner": "^3.1077.0",
+    "@polar-sh/sdk": "^0.48.1",
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.110.0",
     "aws-amplify": "^6.6.6",

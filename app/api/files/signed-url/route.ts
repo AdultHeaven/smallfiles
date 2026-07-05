@@ -50,13 +50,15 @@ export async function POST(request: Request) {
 
 
 
-    // 4. Check daily upload limit
-    const dailyUploads = await profileRepo.getDailyUploadCount(user.id);
-    if (dailyUploads >= plan.daily_upload_limit) {
-      return NextResponse.json(
-        { error: `Daily upload limit reached. You can upload up to ${plan.daily_upload_limit} files per 24 hours.` },
-        { status: 400 }
-      );
+    // 4. Check daily upload limit (only enforced on Free plan)
+    if (profile.plan_id === 'free') {
+      const dailyUploads = await profileRepo.getDailyUploadCount(user.id);
+      if (dailyUploads >= plan.daily_upload_limit) {
+        return NextResponse.json(
+          { error: `Daily upload limit reached. You can upload up to ${plan.daily_upload_limit} files per 24 hours. Upgrade your plan for unlimited uploads.` },
+          { status: 400 }
+        );
+      }
     }
 
     // Generate unique key and signed upload URL

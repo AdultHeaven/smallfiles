@@ -3,20 +3,21 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { Zap, Shield, HardDrive, Share2, UploadCloud, RefreshCw } from 'lucide-react';
 
 export default function FeaturesPage() {
   const items = [
     {
       icon: UploadCloud,
-      title: 'Direct Browser Uploads',
-      desc: 'Bypasses Next.js servers to upload files directly from your browser to Cloudflare R2 bucket. This means faster upload speeds, lower latency, and zero server resource usage.',
+      title: 'High-Speed Direct Uploads',
+      desc: 'Bypasses slow proxy servers to stream uploads directly from your local browser to secure cloud storage nodes. This means faster upload speeds, minimal latency, and zero transfer buffering.',
       color: 'var(--accent-color)',
     },
     {
       icon: Shield,
-      title: 'Supabase Auth & RLS Protection',
-      desc: 'Secured via robust JWT tokens and Row Level Security. Only you can view, rename or delete your files, keeping them completely safe from prying eyes.',
+      title: 'Isolated Privacy Vaults',
+      desc: 'Secured via robust account authorization mapping. Only you can view, share, or delete your files, keeping them completely private and safe from unauthorized access.',
       color: 'var(--success-color)',
     },
     {
@@ -48,7 +49,7 @@ export default function FeaturesPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
       <title>WalkFiles Features — Optimized Cloud Sharing Infrastructure</title>
-      <meta name="description" content="Discover how WalkFiles leverages direct browser uploads, Cloudflare R2 secure object storage, and Supabase security to deliver lightning-fast, private file sharing." />
+      <meta name="description" content="Discover how WalkFiles leverages direct browser streaming uploads, high-speed routing networks, and isolated privacy protocols to deliver private file sharing." />
       <Navbar />
 
       <main style={{ flexGrow: 1, padding: '80px 24px 100px 24px', maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
@@ -81,9 +82,7 @@ export default function FeaturesPage() {
         </div>
       </main>
 
-      <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-        © {new Date().getFullYear()} WalkFiles. Cloud sharing made simple.
-      </footer>
+      <Footer />
     </div>
   );
 }

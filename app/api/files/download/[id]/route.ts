@@ -23,10 +23,10 @@ export async function GET(
     // 1. Increment download count
     await fileRepo.incrementDownloadCount(id);
 
-    // 2. Resolve R2 download URL
+    // 2. Resolve R2 download URL (force private signed url to set attachment content disposition headers)
     const downloadUrl = await getDownloadUrl({
       key: file.r2_key,
-      isPublic: file.is_public,
+      isPublic: false,
       filename: file.original_name,
     });
 

@@ -17,6 +17,7 @@ export interface FileMetadata {
   expires_at: string | null;
   deleted_at: string | null;
   last_downloaded_at: string | null;
+  short_code: string | null;
 }
 
 export class FileRepository {
@@ -55,6 +56,24 @@ export class FileRepository {
 
     if (error) {
       console.error(`Error fetching file metadata for ID ${id}:`, error);
+      return null;
+    }
+
+    return data as FileMetadata;
+  }
+
+  /**
+   * Retrieves a file by its short code.
+   */
+  async getFileByShortCode(shortCode: string): Promise<FileMetadata | null> {
+    const { data, error } = await this.supabase
+      .from('files')
+      .select('*')
+      .eq('short_code', shortCode)
+      .maybeSingle();
+
+    if (error) {
+      console.error(`Error fetching file metadata for short code ${shortCode}:`, error);
       return null;
     }
 

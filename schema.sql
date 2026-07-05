@@ -203,3 +203,113 @@ BEGIN
     AND COALESCE(f.last_downloaded_at, f.created_at) < (timezone('utc'::text, now()) - (p.retention_days || ' days')::INTERVAL);
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+
+-- 8. Migration: Update plans table for WalkFiles pricing tier additions
+-- Run this block in the Supabase SQL Editor if you are upgrading from an older version.
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS slug TEXT;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS price_monthly NUMERIC(10,2);
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS storage_bytes BIGINT;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS max_file_size_bytes BIGINT;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS ads_enabled BOOLEAN DEFAULT true;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS download_speed_tier TEXT DEFAULT 'basic';
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS priority_support BOOLEAN DEFAULT false;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS analytics_level TEXT DEFAULT 'none';
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS password_links BOOLEAN DEFAULT false;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS link_expiration BOOLEAN DEFAULT false;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS bulk_upload BOOLEAN DEFAULT false;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS early_access BOOLEAN DEFAULT false;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS active BOOLEAN DEFAULT true;
+ALTER TABLE public.plans ADD COLUMN IF NOT EXISTS sort_order INT DEFAULT 0;
+
+-- Update the existing plans with new columns
+UPDATE public.plans 
+SET 
+  slug = 'free',
+  price_monthly = 0.00,
+  storage_bytes = 1073741824,
+  max_file_size_bytes = 26214400,
+  ads_enabled = true,
+  download_speed_tier = 'basic',
+  priority_support = false,
+  analytics_level = 'none',
+  password_links = false,
+  link_expiration = false,
+  bulk_upload = false,
+  early_access = false,
+  active = true,
+  sort_order = 0
+WHERE id = 'free';
+
+UPDATE public.plans 
+SET 
+  slug = 'pro',
+  price_monthly = 4.99,
+  storage_limit = 107374184000, -- 100 GB
+  max_file_size = 2147483648, -- 2 GB
+  storage_bytes = 107374184000, -- 100 GB
+  max_file_size_bytes = 2147483648, -- 2 GB
+  ads_enabled = false,
+  download_speed_tier = 'highest',
+  priority_support = false,
+  analytics_level = 'advanced',
+  password_links = true,
+  link_expiration = true,
+  bulk_upload = true,
+  early_access = true,
+  active = true,
+  sort_order = 2
+WHERE id = 'pro';
+
+-- Insert Starter plan limits (25GB storage, 2GB max file size, unlimited daily uploads, no retention)
+INSERT INTO public.plans (id, name, slug, price_monthly, storage_limit, max_file_size, storage_bytes, max_file_size_bytes, daily_upload_limit, retention_days, ads_enabled, download_speed_tier, priority_support, analytics_level, password_links, link_expiration, bulk_upload, early_access, active, sort_order)
+VALUES ('starter', 'Starter', 'starter', 1.49, 26843545600, 2147483648, 26843545600, 2147483648, 1000000, NULL, false, 'fast', false, 'basic', true, true, false, false, true, 1)
+ON CONFLICT (id) DO UPDATE
+SET 
+  name = EXCLUDED.name,
+  slug = EXCLUDED.slug,
+  price_monthly = EXCLUDED.price_monthly,
+  storage_limit = EXCLUDED.storage_limit,
+  max_file_size = EXCLUDED.max_file_size,
+  daily_upload_limit = EXCLUDED.daily_upload_limit,
+  retention_days = EXCLUDED.retention_days,
+  ads_enabled = EXCLUDED.ads_enabled,
+  download_speed_tier = EXCLUDED.download_speed_tier,
+  priority_support = EXCLUDED.priority_support,
+  analytics_level = EXCLUDED.analytics_level,
+  password_links = EXCLUDED.password_links,
+  link_expiration = EXCLUDED.link_expiration,
+  bulk_upload = EXCLUDED.bulk_upload,
+  early_access = EXCLUDED.early_access,
+  active = EXCLUDED.active,
+  sort_order = EXCLUDED.sort_order;
+
+-- Insert Elite plan limits (500GB storage, 2GB max file size, unlimited daily uploads, no retention)
+INSERT INTO public.plans (id, name, slug, price_monthly, storage_limit, max_file_size, storage_bytes, max_file_size_bytes, daily_upload_limit, retention_days, ads_enabled, download_speed_tier, priority_support, analytics_level, password_links, link_expiration, bulk_upload, early_access, active, sort_order)
+VALUES ('elite', 'Elite', 'elite', 19.99, 536870912000, 2147483648, 536870912000, 2147483648, 1000000, NULL, false, 'premium', true, 'advanced', true, true, true, true, true, 3)
+ON CONFLICT (id) DO UPDATE
+SET 
+  name = EXCLUDED.name,
+  slug = EXCLUDED.slug,
+  price_monthly = EXCLUDED.price_monthly,
+  storage_limit = EXCLUDED.storage_limit,
+  max_file_size = EXCLUDED.max_file_size,
+  storage_bytes = EXCLUDED.storage_bytes,
+  max_file_size_bytes = EXCLUDED.max_file_size_bytes,
+  daily_upload_limit = EXCLUDED.daily_upload_limit,
+  retention_days = EXCLUDED.retention_days,
+  ads_enabled = EXCLUDED.ads_enabled,
+  download_speed_tier = EXCLUDED.download_speed_tier,
+  priority_support = EXCLUDED.priority_support,
+  analytics_level = EXCLUDED.analytics_level,
+  password_links = EXCLUDED.password_links,
+  link_expiration = EXCLUDED.link_expiration,
+  bulk_upload = EXCLUDED.bulk_upload,
+  early_access = EXCLUDED.early_access,
+  active = EXCLUDED.active,
+  sort_order = EXCLUDED.sort_order;
+ 
+ 
+-- 9. Migration: Add short_code column to files table
+ALTER TABLE public.files ADD COLUMN IF NOT EXISTS short_code TEXT UNIQUE;
+CREATE INDEX IF NOT EXISTS idx_files_short_code ON public.files(short_code);

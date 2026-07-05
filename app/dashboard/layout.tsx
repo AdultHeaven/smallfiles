@@ -35,6 +35,7 @@ export default async function DashboardLayout({
       <Sidebar
         storageUsed={Number(profile.storage_used)}
         storageLimit={Number(profile.plan.storage_limit)}
+        planId={profile.plan_id}
       />
 
       {/* Main Panel */}

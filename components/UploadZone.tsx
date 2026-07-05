@@ -39,6 +39,7 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
   const { showToast } = useToast();
   const [files, setFiles] = useState<UploadingFile[]>([]);
   const uploadTasks = useRef<{ [key: string]: XMLHttpRequest }>({});
+  const cancelledUploads = useRef<Set<string>>(new Set());
 
   const formatSize = (bytes: number) => {
     if (bytes === 0) return '0 B';
@@ -78,6 +79,7 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
   };
 
   const cancelUpload = (id: string) => {
+    cancelledUploads.current.add(id);
     const xhr = uploadTasks.current[id];
     if (xhr) {
       xhr.abort();
@@ -161,6 +163,11 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
 
       await uploadPromise;
 
+      if (cancelledUploads.current.has(id)) {
+        cancelledUploads.current.delete(id);
+        return;
+      }
+
       // 3. Register file metadata in database
       const regRes = await fetch('/api/files/create', {
         method: 'POST',
@@ -174,13 +181,25 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
         }),
       });
 
+      if (cancelledUploads.current.has(id)) {
+        cancelledUploads.current.delete(id);
+        return;
+      }
+
       if (!regRes.ok) {
         const regErr = await regRes.json();
         throw new Error(regErr.error || 'Failed to register file properties.');
       }
 
       const registeredFile = await regRes.json();
-      const shareLink = `${window.location.origin}/download/${registeredFile.id}`;
+      const shareLink = registeredFile.short_code 
+        ? `${window.location.origin}/f/${registeredFile.short_code}`
+        : `${window.location.origin}/download/${registeredFile.id}`;
+
+      if (cancelledUploads.current.has(id)) {
+        cancelledUploads.current.delete(id);
+        return;
+      }
 
       setFiles((prev) =>
         prev.map((f) =>
@@ -197,10 +216,11 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
 
       showToast(`${file.name} uploaded successfully!`, 'success');
       delete uploadTasks.current[id];
+      cancelledUploads.current.delete(id);
       if (onUploadSuccess) onUploadSuccess();
     } catch (err: any) {
       console.error(err);
-      if (err.message !== 'Upload cancelled.') {
+      if (err.message !== 'Upload cancelled.' && !cancelledUploads.current.has(id)) {
         setFiles((prev) =>
           prev.map((f) =>
             f.id === id
@@ -215,6 +235,7 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
         showToast(`Failed to upload ${file.name}: ${err.message}`, 'error');
       }
       delete uploadTasks.current[id];
+      cancelledUploads.current.delete(id);
     }
   }, [onUploadSuccess, showToast]);
 

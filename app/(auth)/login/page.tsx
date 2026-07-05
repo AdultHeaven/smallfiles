@@ -91,7 +91,7 @@ export default function LoginPage() {
         />
       </div>
 
-      <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '8px' }} disabled={loading}>
+      <button type="submit" className="sb-pricing-btn-pro" style={{ width: '100%', marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} disabled={loading}>
         {loading ? 'Logging in...' : 'Log in'}
       </button>
 

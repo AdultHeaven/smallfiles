@@ -54,7 +54,7 @@ export default function RegisterPage() {
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '24px' }}>
           We've sent a verification link to <strong>{email}</strong>. Please check your inbox (and spam folder) to complete registration.
         </p>
-        <Link href="/login" className="btn btn-primary" style={{ width: '100%' }}>
+        <Link href="/login" className="sb-pricing-btn-pro" style={{ width: '100%', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Go to Login
         </Link>
       </div>
@@ -65,7 +65,7 @@ export default function RegisterPage() {
     <form onSubmit={handleRegister}>
       <h2 style={{ marginBottom: '8px', fontWeight: 700 }}>Get Started</h2>
       <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', marginBottom: '24px' }}>
-        Create your free WalkFiles account (1 GB storage).
+        Create your free WalkFiles account.
       </p>
 
       {error && (
@@ -121,7 +121,7 @@ export default function RegisterPage() {
         />
       </div>
 
-      <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '8px' }} disabled={loading}>
+      <button type="submit" className="sb-pricing-btn-pro" style={{ width: '100%', marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} disabled={loading}>
         {loading ? 'Creating account...' : 'Create Account'}
       </button>
 

@@ -80,8 +80,10 @@ export default function MyFilesPage() {
     setOffset(0); // Reset pagination on search
   };
 
-  const copyToClipboard = (id: string) => {
-    const link = `${window.location.origin}/download/${id}`;
+  const copyToClipboard = (file: FileMetadata) => {
+    const link = file.short_code 
+      ? `${window.location.origin}/f/${file.short_code}`
+      : `${window.location.origin}/download/${file.id}`;
     navigator.clipboard.writeText(link);
     showToast('Share link copied to clipboard!', 'success');
   };
@@ -319,7 +321,7 @@ export default function MyFilesPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                 <button
                   type="button"
-                  onClick={() => copyToClipboard(file.id)}
+                  onClick={() => copyToClipboard(file)}
                   className="btn btn-secondary"
                   style={{ padding: '8px 12px', fontSize: '0.75rem', minHeight: '32px' }}
                   title="Copy Share Link"
@@ -338,7 +340,9 @@ export default function MyFilesPage() {
                   <span className="desktop-only" style={{ marginLeft: '4px' }}>Rename</span>
                 </button>
                 <Link
-                  href={`/download/${file.id}`}
+                  href={file.short_code ? `/f/${file.short_code}` : `/download/${file.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-secondary"
                   style={{ padding: '8px 12px', fontSize: '0.75rem', minHeight: '32px', display: 'inline-flex', alignItems: 'center' }}
                   title="Open Portal Preview"

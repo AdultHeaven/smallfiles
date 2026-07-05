@@ -28,107 +28,196 @@ export default function Navbar({ isMinimal = false }: NavbarProps) {
   }, [supabase]);
 
   return (
-    <header className="nav-header">
+    <header className="nav-header" style={{ padding: '0' }}>
       <div style={{
-        maxWidth: '1200px',
+        maxWidth: '1120px',
         width: '100%',
         margin: '0 auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         height: '100%',
+        padding: '0 24px',
       }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#logo-gradient)" />
-            <path d="M2 17L12 22L22 17" stroke="url(#logo-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M2 12L12 17L22 12" stroke="url(#logo-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.5" />
-            <defs>
-              <linearGradient id="logo-gradient" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#3b82f6" />
-                <stop offset="1" stopColor="#8b5cf6" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <span style={{
-            fontWeight: 800,
-            fontSize: '1.2rem',
-            letterSpacing: '-0.04em',
-            fontFamily: 'var(--font-display)',
-            background: 'linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}>
-            WalkFiles
-          </span>
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '28px', height: '100%' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', height: '100%' }} onClick={() => setMobileMenuOpen(false)}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#logo-gradient)" />
+              <path d="M2 17L12 22L22 17" stroke="url(#logo-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M2 12L12 17L22 12" stroke="url(#logo-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.5" />
+              <defs>
+                <linearGradient id="logo-gradient" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#10b981" />
+                  <stop offset="1" stopColor="#3ecf8e" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <span className="sb-logo-text">
+              walkfiles
+            </span>
+          </Link>
 
-        {/* Desktop Menu */}
-        {isMinimal ? (
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '24px' }} className="desktop-menu">
-            <Link href="/features" style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-secondary)', transition: 'color 0.2s ease' }} className="nav-hover-link">Features</Link>
-            {isLoggedIn === null ? (
-              <div style={{ width: '80px', height: '36px' }}></div> // Skeleton placeholder
-            ) : (
-              <Link href={isLoggedIn ? "/dashboard" : "/register"} className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '0.8rem' }}>
-                {isLoggedIn ? "Go to Dashboard" : "Upload Files"}
+          {/* Desktop Nav Links (inside flex next to logo) */}
+          {!isMinimal && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', height: '100%' }} className="desktop-menu">
+              <Link href="/features" className="sb-nav-link">
+                Product
               </Link>
-            )}
-          </nav>
-        ) : (
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-menu">
-            <Link href="/features" style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-secondary)', transition: 'color 0.2s ease' }} className="nav-hover-link">Features</Link>
-            <Link href="/pricing" style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-secondary)', transition: 'color 0.2s ease' }} className="nav-hover-link">Pricing</Link>
-            <Link href="/dmca" style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-secondary)', transition: 'color 0.2s ease' }} className="nav-hover-link">DMCA</Link>
-            <Link href="/contact" style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-secondary)', transition: 'color 0.2s ease' }} className="nav-hover-link">Contact</Link>
+              <Link href="/pricing" className="sb-nav-link">
+                Pricing
+              </Link>
+              <Link href="/security" className="sb-nav-link">
+                Security
+              </Link>
+              <Link href="/contact" className="sb-nav-link">
+                Contact
+              </Link>
+            </div>
+          )}
+        </div>
 
+        {/* Right Side Tools (Desktop & Mobile hamburger align here) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {isMinimal ? (
+            <nav style={{ display: 'flex', alignItems: 'center', gap: '16px' }} className="desktop-menu">
+              <Link href="/features" className="sb-nav-link">
+                Product
+              </Link>
+              {isLoggedIn === null ? (
+                <div style={{ width: '80px', height: '28px' }}></div>
+              ) : (
+                <Link href={isLoggedIn ? "/dashboard" : "/register"} className="sb-btn-blue">
+                  {isLoggedIn ? "Dashboard" : "Upload"}
+                </Link>
+              )}
+            </nav>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }} className="desktop-menu">
+              {isLoggedIn === null ? (
+                <div style={{ width: '100px', height: '28px' }}></div>
+              ) : isLoggedIn ? (
+                <>
+                  <Link href="/dashboard" className="sb-btn-blue">
+                    Dashboard
+                  </Link>
+                  <Link href="/dashboard/settings" className="sb-avatar-btn">
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </Link>
+                </>
+              ) : (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <Link href="/login" className="sb-login-link">
+                    Log in
+                  </Link>
+                  <Link href="/register" className="sb-btn-blue">
+                    Sign up
+                  </Link>
+                  <Link href="/login" className="sb-avatar-btn">
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Mobile Hamburger toggle button */}
+          {!isMinimal && (
+            <button
+              className="hamburger-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              style={{ padding: '6px' }}
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          )}
+        </div>
+
+        {/* Mobile Minimal Mode Action Button */}
+        {isMinimal && (
+          <Link
+            href={isLoggedIn ? "/dashboard" : "/register"}
+            className="mobile-cta-btn sb-btn-blue"
+            style={{
+              display: 'none',
+              height: '30px',
+              padding: '0 12px'
+            }}
+          >
+            {isLoggedIn ? "Dashboard" : "Upload"}
+          </Link>
+        )}
+      </div>
+
+      {/* Glassmorphic Mobile Menu Overlay */}
+      {!isMinimal && (
+        <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`}>
+          <Link href="/features" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Product</Link>
+          <Link href="/pricing" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+          <Link href="/security" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Security</Link>
+          <Link href="/contact" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: 'auto' }}>
             {isLoggedIn === null ? (
-              <div style={{ width: '80px', height: '36px' }}></div> // Skeleton placeholder
+              <div className="skeleton" style={{ height: '40px', width: '100%' }}></div>
             ) : isLoggedIn ? (
-              <Link href="/dashboard" className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '0.8rem' }}>
+              <Link
+                href="/dashboard"
+                className="btn btn-primary"
+                style={{ width: '100%', padding: '12px' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Go to Dashboard
               </Link>
             ) : (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
-                <Link href="/login" style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.2s ease' }} className="nav-hover-link">
+              <>
+                <Link
+                  href="/login"
+                  className="btn btn-secondary"
+                  style={{ width: '100%', padding: '12px', textAlign: 'center' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Log in
                 </Link>
-                <Link href="/register" className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '0.8rem' }}>
-                  Sign up
+                <Link
+                  href="/register"
+                  className="btn btn-primary"
+                  style={{ width: '100%', padding: '12px' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Sign up free
                 </Link>
-              </div>
+              </>
             )}
-          </nav>
-        )}
-
-        {/* Mobile Action Button (conversion focus) */}
-        <Link 
-          href={isLoggedIn ? "/dashboard" : "/register"} 
-          className="mobile-cta-btn btn btn-primary"
-          style={{ 
-            padding: '6px 14px', 
-            fontSize: '0.75rem', 
-            textDecoration: 'none',
-            display: 'none'
-          }}
-        >
-          {isLoggedIn ? "Dashboard" : "Upload Files"}
-        </Link>
-      </div>
+          </div>
+        </div>
+      )}
 
       <style jsx global>{`
         .nav-hover-link:hover {
           color: var(--text-primary) !important;
+        }
+        .mobile-cta-btn {
+          display: none !important;
         }
         @media (max-width: 768px) {
           .desktop-menu {
             display: none !important;
           }
           .mobile-cta-btn {
-            display: block !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
           }
         }
       `}</style>
     </header>
   );
 }
+

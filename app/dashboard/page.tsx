@@ -210,6 +210,8 @@ export default async function DashboardPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                     <Link 
                       href={`/download/${file.id}`} 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{ 
                         fontWeight: 600, 
                         fontSize: '0.875rem', 
@@ -227,13 +229,15 @@ export default async function DashboardPage() {
                     </span>
                   </div>
                 </div>
-
+ 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'none' }} className="desktop-only">
                     {new Date(file.created_at).toLocaleDateString()}
                   </span>
                   <Link 
                     href={`/download/${file.id}`} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn btn-secondary" 
                     style={{ padding: '6px 12px', fontSize: '0.75rem', minHeight: '30px' }}
                   >

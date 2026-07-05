@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  Download, 
-  Copy, 
-  AlertTriangle, 
-  QrCode, 
-  CheckCircle, 
-  Loader2, 
-  Eye, 
+import {
+  Download,
+  Copy,
+  AlertTriangle,
+  QrCode,
+  CheckCircle,
+  Loader2,
+  Eye,
   Maximize2,
   FileText,
   FileImage,
@@ -31,7 +31,7 @@ interface FileDetails {
   short_code: string | null;
 }
 
-export default function DownloadDetails({ file, downloadUrl }: { file: FileDetails; downloadUrl: string }) {
+export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDetails; downloadUrl: string }) {
   const [copied, setCopied] = useState(false);
   const [showAbuseModal, setShowAbuseModal] = useState(false);
   const [abuseReason, setAbuseReason] = useState('');
@@ -40,8 +40,8 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
   const [showQr, setShowQr] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  const fileUrl = typeof window !== 'undefined' 
-    ? `${window.location.origin}/f/${file.short_code || file.id}` 
+  const fileUrl = typeof window !== 'undefined'
+    ? `${window.location.origin}/f/${file.short_code || file.id}`
     : '';
 
   const formatSize = (bytes: number) => {
@@ -50,6 +50,18 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
     const sizes = ['B', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+  };
+
+  const truncateMiddle = (name: string, maxLen = 22) => {
+    if (!name || name.length <= maxLen) return name;
+    const extIndex = name.lastIndexOf('.');
+    const ext = extIndex !== -1 ? name.substring(extIndex) : '';
+    const baseName = extIndex !== -1 ? name.substring(0, extIndex) : name;
+    const targetLength = maxLen - ext.length - 3;
+    if (targetLength <= 0) return name;
+    const startChars = Math.ceil(targetLength / 2);
+    const endChars = Math.floor(targetLength / 2);
+    return `${baseName.substring(0, startChars)}...${baseName.substring(baseName.length - endChars)}${ext}`;
   };
 
   const handleCopy = () => {
@@ -88,18 +100,6 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
     }
   };
 
-  const truncateMiddle = (name: string, maxLen = 22) => {
-    if (!name || name.length <= maxLen) return name;
-    const extIndex = name.lastIndexOf('.');
-    const ext = extIndex !== -1 ? name.substring(extIndex) : '';
-    const baseName = extIndex !== -1 ? name.substring(0, extIndex) : name;
-    const targetLength = maxLen - ext.length - 3;
-    if (targetLength <= 0) return name;
-    const startChars = Math.ceil(targetLength / 2);
-    const endChars = Math.floor(targetLength / 2);
-    return `${baseName.substring(0, startChars)}...${baseName.substring(baseName.length - endChars)}${ext}`;
-  };
-
   const isImage = file.mime_type?.startsWith('image/');
   const isVideo = file.mime_type?.startsWith('video/');
   const isAudio = file.mime_type?.startsWith('audio/');
@@ -117,16 +117,16 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
 
   return (
     <div className="preview-container" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', maxWidth: '1080px', margin: '0 auto' }}>
-      
+
       {/* Split Layout: Left Preview, Right Sidebar */}
       <div className="split-layout">
-        
+
         {/* Left Side: Previewer Panel */}
         <div className="preview-pane">
           {isImage && (
             <div className="image-preview-wrapper">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 onClick={() => setIsFullScreen(true)}
                 className="btn btn-secondary fs-toggle"
                 title="View Fullscreen"
@@ -330,8 +330,8 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
       {/* Abuse Modal */}
       {showAbuseModal && (
         <div className="modal-backdrop" onClick={() => setShowAbuseModal(false)}>
-          <div 
-            className="card animate-fade-in" 
+          <div
+            className="card animate-fade-in"
             style={{ width: '100%', maxWidth: '440px', display: 'flex', flexDirection: 'column', gap: '20px', padding: '24px' }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -375,7 +375,8 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
       )}
 
       {/* Styled HTML layout variables */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .file-title {
           font-size: 1.25rem;
           font-weight: 800;
@@ -384,6 +385,12 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
           color: var(--text-primary);
           margin-bottom: 8px;
           line-height: 1.3;
+        }
+        .desktop-only-card {
+          display: flex !important;
+        }
+        .mobile-only-card {
+          display: none !important;
         }
         .split-layout {
           display: flex;
@@ -613,12 +620,6 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
           gap: 4px;
           text-decoration: none;
           flex-shrink: 0;
-        }
-        .desktop-only-card {
-          display: flex !important;
-        }
-        .mobile-only-card {
-          display: none !important;
         }
         @media (max-width: 768px) {
           .split-layout {
