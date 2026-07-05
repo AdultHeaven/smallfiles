@@ -52,30 +52,26 @@ export default function FeaturesPage() {
       <meta name="description" content="Discover how WalkFiles leverages direct browser streaming uploads, high-speed routing networks, and isolated privacy protocols to deliver private file sharing." />
       <Navbar />
 
-      <main style={{ flexGrow: 1, padding: '80px 24px 100px 24px', maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }} className="animate-fade-in">
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Engineered for speed and security</h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+      <main className="info-page-main">
+        <div className="info-page-header animate-fade-in">
+          <h1 className="info-page-title">Engineered for speed and security</h1>
+          <p className="info-page-subtitle">
             WalkFiles is optimized to provide a seamless, premium file hosting and sharing experience.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}>
+        <div className="info-grid">
           {items.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '28px' }}>
-                <div style={{
-                  padding: '12px',
-                  borderRadius: 'var(--radius-md)',
-                  backgroundColor: 'var(--bg-app)',
-                  color: item.color,
-                  alignSelf: 'flex-start'
-                }}>
-                  <Icon size={24} />
+              <div key={item.title} className="info-card">
+                <div className="info-card-header">
+                  <div className="info-card-icon" style={{ color: item.color }}>
+                    <Icon size={18} />
+                  </div>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', margin: 0, lineHeight: 1.3 }}>{item.title}</h3>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700 }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.5 }}>{item.desc}</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
               </div>
             );
           })}

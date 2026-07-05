@@ -52,32 +52,27 @@ export default function SecurityPage() {
       <meta name="description" content="Discover WalkFiles direct cloud encryption, isolated account security systems, link passwords, and auto-expiration features." />
       <Navbar />
 
-      <main style={{ flexGrow: 1, padding: '80px 24px 100px 24px', maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }} className="animate-fade-in">
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px', letterSpacing: '-0.02em', color: '#ffffff' }}>
+      <main className="info-page-main">
+        <div className="info-page-header animate-fade-in">
+          <h1 className="info-page-title">
             Enterprise-grade security by default
           </h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.4 }}>
+          <p className="info-page-subtitle">
             We design every upload pathway to keep your documents, folders, and shared media fully secure.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}>
+        <div className="info-grid">
           {securityFeatures.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '28px', backgroundColor: 'rgba(23, 23, 25, 0.4)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
-                <div style={{
-                  padding: '12px',
-                  borderRadius: '6px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid var(--border-color)',
-                  color: item.color,
-                  alignSelf: 'flex-start'
-                }}>
-                  <Icon size={22} />
+              <div key={idx} className="info-card">
+                <div className="info-card-header">
+                  <div className="info-card-icon" style={{ color: item.color }}>
+                    <Icon size={18} />
+                  </div>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', margin: 0, lineHeight: 1.3 }}>{item.title}</h3>
                 </div>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>{item.title}</h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
               </div>
             );

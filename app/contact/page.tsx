@@ -35,28 +35,23 @@ export default function ContactPage() {
       <meta name="description" content="Reach out to WalkFiles for general assistance, enterprise queries, account billing help, or to file abuse and DMCA reports." />
       <Navbar />
 
-      <main style={{ flexGrow: 1, padding: '80px 24px 100px 24px', maxWidth: '1120px', margin: '0 auto', width: '100%' }}>
+      <main className="info-page-main" style={{ maxWidth: '1120px' }}>
         {/* Header Section */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }} className="animate-fade-in">
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px', letterSpacing: '-0.02em', color: '#ffffff' }}>
+        <div className="info-page-header animate-fade-in">
+          <h1 className="info-page-title">
             We're here to help
           </h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.4 }}>
+          <p className="info-page-subtitle">
             Get in touch with our team for account support, enterprise sales, or technical questions.
           </p>
         </div>
 
         {/* Content Columns */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '40px',
-          alignItems: 'start'
-        }} className="hero-container">
+        <div className="contact-grid">
           {/* Left Column: Contact Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {/* Card 1: Technical & General Support */}
-            <div className="card" style={{ display: 'flex', gap: '16px', padding: '24px', backgroundColor: 'rgba(23, 23, 25, 0.4)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
+            <div className="contact-card">
               <div style={{ padding: '10px', borderRadius: '6px', backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-color)', color: '#3ecf8e', flexShrink: 0, height: '44px', width: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <LifeBuoy size={20} />
               </div>
@@ -70,7 +65,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 2: Enterprise Inquiries */}
-            <div className="card" style={{ display: 'flex', gap: '16px', padding: '24px', backgroundColor: 'rgba(23, 23, 25, 0.4)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
+            <div className="contact-card">
               <div style={{ padding: '10px', borderRadius: '6px', backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-color)', color: '#3ecf8e', flexShrink: 0, height: '44px', width: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <MessageSquare size={20} />
               </div>
@@ -84,7 +79,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 3: Abuse & DMCA */}
-            <div className="card" style={{ display: 'flex', gap: '16px', padding: '24px', backgroundColor: 'rgba(23, 23, 25, 0.4)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
+            <div className="contact-card">
               <div style={{ padding: '10px', borderRadius: '6px', backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-color)', color: '#a78bfa', flexShrink: 0, height: '44px', width: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <ShieldAlert size={20} />
               </div>
@@ -99,7 +94,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="card" style={{ padding: '32px', backgroundColor: 'rgba(23, 23, 25, 0.65)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
+          <div className="contact-form-card">
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '40px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }} className="animate-fade-in">
                 <div style={{ color: '#3ecf8e' }}>

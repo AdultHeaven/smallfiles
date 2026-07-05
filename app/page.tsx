@@ -20,7 +20,9 @@ import {
   ChevronDown,
   ChevronUp,
   Infinity,
-  Link2
+  Link2,
+  Play,
+  UserMinus
 } from 'lucide-react';
 
 const STATIC_PLANS = [
@@ -268,56 +270,90 @@ export default function LandingPage() {
             backgroundColor: 'rgba(23, 23, 25, 0.45)',
             border: '1px solid var(--border-color)',
             borderRadius: '8px',
-            padding: '20px',
+            padding: '24px 20px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '16px',
+            gap: '20px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
             backdropFilter: 'blur(8px)',
-            width: '100%'
+            width: '100%',
+            textAlign: 'left'
           }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.05em', textAlign: 'left', display: 'block' }}>
                 Why users choose WalkFiles
               </span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>How we fix traditional file sharing frustrations</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textAlign: 'left', display: 'block' }}>How we fix traditional file sharing frustrations</span>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
               {/* Row 1 */}
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
-                <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#3ecf8e', backgroundColor: 'rgba(62,207,142,0.1)', padding: '2px 6px', borderRadius: '4px', marginTop: '1px', width: '22px', textAlign: 'center', flexShrink: 0 }}>
-                  01
+              <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.03)', textAlign: 'left' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  width: '32px', 
+                  height: '32px', 
+                  borderRadius: '50%', 
+                  backgroundColor: 'rgba(16, 185, 129, 0.08)', 
+                  color: '#10b981', 
+                  flexShrink: 0,
+                  border: '1px solid rgba(16, 185, 129, 0.15)'
+                }}>
+                  <Zap size={14} />
                 </div>
-                <div>
-                  <h5 style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', margin: '0 0 3px 0' }}>Super Fast Downloads</h5>
-                  <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', lineHeight: 1.4, margin: 0 }}>
+                <div style={{ textAlign: 'left' }}>
+                  <h5 style={{ fontSize: '0.82rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0', textAlign: 'left' }}>Super Fast Downloads</h5>
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', lineHeight: 1.45, margin: 0, textAlign: 'left' }}>
                     No slow downloads, annoying pop-up ads, or countdown timers. Your friends get their files immediately at full speed.
                   </p>
                 </div>
               </div>
 
               {/* Row 2 */}
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
-                <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#3ecf8e', backgroundColor: 'rgba(62,207,142,0.1)', padding: '2px 6px', borderRadius: '4px', marginTop: '1px', width: '22px', textAlign: 'center', flexShrink: 0 }}>
-                  02
+              <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.03)', textAlign: 'left' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  width: '32px', 
+                  height: '32px', 
+                  borderRadius: '50%', 
+                  backgroundColor: 'rgba(59, 130, 246, 0.08)', 
+                  color: '#3b82f6', 
+                  flexShrink: 0,
+                  border: '1px solid rgba(59, 130, 246, 0.15)'
+                }}>
+                  <UserMinus size={14} />
                 </div>
-                <div>
-                  <h5 style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', margin: '0 0 3px 0' }}>No Account Needed</h5>
-                  <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', lineHeight: 1.4, margin: 0 }}>
+                <div style={{ textAlign: 'left' }}>
+                  <h5 style={{ fontSize: '0.82rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0', textAlign: 'left' }}>No Account Needed</h5>
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', lineHeight: 1.45, margin: 0, textAlign: 'left' }}>
                     Keep it simple. Send sharing links to anyone, and they can view or download files without having to sign up.
                   </p>
                 </div>
               </div>
 
               {/* Row 3 */}
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#3ecf8e', backgroundColor: 'rgba(62,207,142,0.1)', padding: '2px 6px', borderRadius: '4px', marginTop: '1px', width: '22px', textAlign: 'center', flexShrink: 0 }}>
-                  03
+              <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', textAlign: 'left' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  width: '32px', 
+                  height: '32px', 
+                  borderRadius: '50%', 
+                  backgroundColor: 'rgba(168, 85, 247, 0.08)', 
+                  color: '#a855f7', 
+                  flexShrink: 0,
+                  border: '1px solid rgba(168, 85, 247, 0.15)'
+                }}>
+                  <Play size={12} style={{ marginLeft: '1px' }} />
                 </div>
-                <div>
-                  <h5 style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', margin: '0 0 3px 0' }}>Play Media Instantly</h5>
-                  <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', lineHeight: 1.4, margin: 0 }}>
+                <div style={{ textAlign: 'left' }}>
+                  <h5 style={{ fontSize: '0.82rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0', textAlign: 'left' }}>Play Media Instantly</h5>
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', lineHeight: 1.45, margin: 0, textAlign: 'left' }}>
                     Watch shared videos, listen to audio files, or view photo galleries directly in the browser without having to download them first.
                   </p>
                 </div>
