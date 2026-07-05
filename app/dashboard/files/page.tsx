@@ -29,6 +29,7 @@ interface FileMetadata {
   download_count: number;
   created_at: string;
   r2_key: string;
+  short_code: string | null;
 }
 
 type CategoryType = 'all' | 'image' | 'video' | 'audio' | 'zip' | 'document';
