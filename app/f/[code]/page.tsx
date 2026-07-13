@@ -5,7 +5,7 @@ import { FileRepository } from '../../../repositories/file.repository';
 import ShortLinkDetails from './ShortLinkDetails';
 import Navbar from '@/components/Navbar';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 604800; // Cache for 1 week (604800 seconds)
 
 interface PageProps {
   params: {
