@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { loadDownloadAd } from '../../../lib/ads';
 import { 
   Download, 
   Copy, 
@@ -85,6 +86,7 @@ export default function FilePage({ params }: Props) {
 
   const handleDownload = async (e: React.MouseEvent) => {
     e.preventDefault();
+    loadDownloadAd();
     if (downloading) return;
     setDownloading(true);
     try {

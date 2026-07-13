@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { loadDownloadAd } from '../../../lib/ads';
 import { 
   Download, 
   Copy, 
@@ -200,6 +201,7 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
               <a
                 href={`/api/files/download/${file.id}`}
                 className="btn btn-primary main-download-btn"
+                onClick={loadDownloadAd}
               >
                 <Download size={16} />
                 <span>Download File</span>
@@ -256,6 +258,7 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
               <a
                 href={`/api/files/download/${file.id}`}
                 className="btn btn-primary mobile-download-btn"
+                onClick={loadDownloadAd}
               >
                 <Download size={13} />
                 <span>Download</span>
