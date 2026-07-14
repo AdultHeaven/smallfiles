@@ -48,18 +48,21 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  authors: [{ name: "WalkFiles Team", url: "https://walkfiles.fun" }],
-  metadataBase: new URL("https://walkfiles.fun"),
+  authors: [{ name: "WalkFiles Team", url: "https://walkfiles.com" }],
+  metadataBase: new URL("https://walkfiles.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "WalkFiles — Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
     description:
       "Upload and share folders, documents, images, and videos securely up to 1 GB for free. Powered by direct Cloudflare R2 browser uploads.",
-    url: "https://walkfiles.fun",
+    url: "https://walkfiles.com",
     siteName: "WalkFiles",
     type: "website",
     images: [
       {
-        url: "https://walkfiles.fun/favicon.ico",
+        url: "https://walkfiles.com/favicon.ico",
         width: 1200,
         height: 630,
         alt: "WalkFiles Secure File Hosting",
@@ -71,7 +74,7 @@ export const metadata: Metadata = {
     title: "WalkFiles — Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
     description:
       "Upload and share files securely with zero speed limits and native browser media previews.",
-    images: ["https://walkfiles.fun/favicon.ico"],
+    images: ["https://walkfiles.com/favicon.ico"],
   },
 };
 
@@ -96,17 +99,17 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "WalkFiles",
-              "url": "https://walkfiles.fun",
+              "url": "https://walkfiles.com",
               "description": "WalkFiles is a high-speed, secure, and private file sharing platform. Share files anonymously or sign up for larger cloud storage, with direct browser downloads and native media preview player support.",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://walkfiles.fun/search?q={search_term_string}",
+                "target": "https://walkfiles.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               },
               "author": {
                 "@type": "Organization",
                 "name": "WalkFiles Team",
-                "logo": "https://walkfiles.fun/favicon.ico"
+                "logo": "https://walkfiles.com/favicon.ico"
               },
               "sameAs": [
                 "https://twitter.com/walkfiles",

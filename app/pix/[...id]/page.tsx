@@ -149,7 +149,7 @@ export default function FilePage({ params }: Props) {
       <header className="pf-header pf-header-min">
         <div className="pf-header-left">
           <Link href="/" className="pf-logo">
-            Small<span style={{ color: '#4da3ff' }}>Files</span>.fun
+            Walk<span style={{ color: '#4da3ff' }}>Files</span>.com
           </Link>
         </div>
 
@@ -201,7 +201,7 @@ export default function FilePage({ params }: Props) {
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">
            <div className="pf-foot-left">
-             <span className="brand-min">SmallFiles.fun</span>
+             <span className="brand-min">WalkFiles.com</span>
            </div>
 
            <div className="pf-foot-links">

@@ -40,7 +40,7 @@ export async function uploadToBunny(file: File): Promise<string> {
     throw new Error(`Upload failed: ${res.status} ${res.statusText}`);
   }
 
-  const finalUrl = `https://smallfiles.fun/file/${uniqueName}`;
+  const finalUrl = `https://walkfiles.com/file/${uniqueName}`;
   //console.log("✅ Upload success. File URL:", finalUrl);
 
   return finalUrl;

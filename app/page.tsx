@@ -485,7 +485,7 @@ export default function LandingPage() {
             <div className="visual-upload-mock" style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: 'auto' }}>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Shareable path generated:</span>
               <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-                <input readOnly value="https://walkfiles.fun/file/a8df9..." style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '4px 8px', fontSize: '0.65rem', color: '#e4e4e7' }} />
+                <input readOnly value="https://walkfiles.com/file/a8df9..." style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '4px 8px', fontSize: '0.65rem', color: '#e4e4e7' }} />
                 <button style={{ fontSize: '0.65rem', padding: '4px 8px', backgroundColor: '#3ecf8e', border: 'none', borderRadius: '4px', color: '#0c0c0d', fontWeight: 600, cursor: 'pointer' }}>Copy</button>
               </div>
             </div>
@@ -566,7 +566,7 @@ export default function LandingPage() {
             </p>
 
             <div className="terminal-code" style={{ marginTop: 'auto' }}>
-              <span className="sb-purple-text">curl</span> -X POST https://walkfiles.fun/api/upload \<br />
+              <span className="sb-purple-text">curl</span> -X POST https://walkfiles.com/api/upload \<br />
               &nbsp;&nbsp;-H <span className="sb-green-text">"Authorization: Bearer wk_key_2aef7..."</span> \<br />
               &nbsp;&nbsp;-F <span className="sb-blue-text">"file=@my_database.backup"</span>
             </div>
