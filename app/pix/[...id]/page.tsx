@@ -105,6 +105,8 @@ import '../../filePagePix.css';
 import Script from 'next/script';
 import AdBanner from '../../components/AdBanner';
 import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
+import NewAdBanners from '../../components/NewAdBanners';
+
 
 type Props = { params: { id: string[] } };
 
@@ -197,6 +199,7 @@ export default function FilePage({ params }: Props) {
         />
       )}
               <AdBanner/>
+              <NewAdBanners />
       
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">

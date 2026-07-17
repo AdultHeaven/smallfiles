@@ -23,6 +23,8 @@ import {
   X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import NewAdBanners from '../../components/NewAdBanners';
+
 
 type Props = {
   params: { id: string };
@@ -375,6 +377,7 @@ export default function FilePage({ params }: Props) {
               <ArrowRight size={12} />
             </Link>
           </div>
+          <NewAdBanners />
         </div>
       </main>
 

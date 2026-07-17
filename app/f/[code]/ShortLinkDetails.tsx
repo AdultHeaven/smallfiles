@@ -22,6 +22,8 @@ import {
   X
 } from 'lucide-react';
 
+import NewAdBanners from '../../components/NewAdBanners';
+
 interface FileDetails {
   id: string;
   original_name: string;
@@ -319,6 +321,8 @@ export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDeta
           <ArrowRight size={12} />
         </Link>
       </div>
+
+      <NewAdBanners />
 
       {/* Image Full Screen Modal Overlay */}
       {isFullScreen && isImage && (
