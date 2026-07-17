@@ -22,7 +22,7 @@ import {
   X
 } from 'lucide-react';
 
-import NewAdBanners from '../../components/NewAdBanners';
+import Script from 'next/script';
 
 interface FileDetails {
   id: string;
@@ -322,7 +322,7 @@ export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDeta
         </Link>
       </div>
 
-      <NewAdBanners />
+      <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
 
       {/* Image Full Screen Modal Overlay */}
       {isFullScreen && isImage && (

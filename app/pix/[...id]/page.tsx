@@ -105,7 +105,6 @@ import '../../filePagePix.css';
 import Script from 'next/script';
 import AdBanner from '../../components/AdBanner';
 import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
-import NewAdBanners from '../../components/NewAdBanners';
 
 
 type Props = { params: { id: string[] } };
@@ -199,7 +198,7 @@ export default function FilePage({ params }: Props) {
         />
       )}
               <AdBanner/>
-              <NewAdBanners />
+              <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
       
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">
