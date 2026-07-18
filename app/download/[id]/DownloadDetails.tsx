@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 import { loadDownloadAd } from '../../../lib/ads';
 import { 
   Download, 
@@ -120,6 +121,7 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
 
   return (
     <div className="preview-container" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', maxWidth: '1080px', margin: '0 auto' }}>
+      <Script src="/mobilepopup.js" strategy="afterInteractive" />
       
       {/* Split Layout: Left Preview, Right Sidebar */}
       <div className="split-layout">

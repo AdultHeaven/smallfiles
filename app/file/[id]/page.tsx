@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { loadDownloadAd } from '../../../lib/ads';
 import { 
   Download, 
@@ -166,6 +167,7 @@ export default function FilePage({ params }: Props) {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
       <title>{`${id} — WalkFiles CDN Preview`}</title>
       <meta name="description" content={`Safe direct link download and preview for ${id}. Stream video/image previews instantly and transfer files securely on WalkFiles.`} />
+      <Script src="/mobilepopup.js" strategy="afterInteractive" />
       {/* Dynamic Header */}
       <Navbar isMinimal={true} />
 
