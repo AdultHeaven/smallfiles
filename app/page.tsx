@@ -31,10 +31,10 @@ const STATIC_PLANS = [
     name: 'Free',
     slug: 'free',
     price: 0,
-    storage: '1 GB',
-    storageLimit: 1073741824,
-    maxFileSize: '25 MB',
-    maxFileLimit: 26214400,
+    storage: '5 GB',
+    storageLimit: 5368709120,
+    maxFileSize: '150 MB',
+    maxFileLimit: 157286400,
     uploads: '50 uploads / day',
     desc: 'Perfect for simple sharing and temporary file transfers.',
     features: [
@@ -59,7 +59,7 @@ const STATIC_PLANS = [
     storageLimit: 26843545600,
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
-    uploads: 'Unlimited',
+    uploads: '50 uploads / day',
     desc: 'Great for personal cloud storage and basic sharing settings.',
     features: [
       { text: 'Everything in Free plus:', header: true },
@@ -84,7 +84,7 @@ const STATIC_PLANS = [
     storageLimit: 107374182400,
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
-    uploads: 'Unlimited',
+    uploads: '50 uploads / day',
     desc: 'For creators and power users requiring larger security settings.',
     features: [
       { text: 'Everything in Starter plus:', header: true },
@@ -109,8 +109,8 @@ const STATIC_PLANS = [
     storageLimit: 536870912000,
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
-    uploads: 'Unlimited',
-    desc: 'Unlimited uploads, huge capacity, and premium speed tiers.',
+    uploads: '50 uploads / day',
+    desc: '50 daily uploads, huge capacity, and premium speed tiers.',
     features: [
       { text: 'Everything in Pro plus:', header: true },
       { text: 'Premium network performance' },
@@ -130,15 +130,15 @@ export default function LandingPage() {
   const faqs = [
     {
       q: 'What is the storage space limit on the Free plan?',
-      a: 'The Free plan includes 1 GB of secure cloud storage. This is completely free and automatically activated upon registration.',
+      a: 'The Free plan includes 5 GB of secure cloud storage. This is completely free and automatically activated upon registration.',
     },
     {
       q: 'What is the maximum file size I can share?',
-      a: 'You can upload files up to 25 MB each. Need to share larger files? We are launching a premium Pro plan (coming soon) supporting uploads up to 2 GB per file.',
+      a: 'You can upload files up to 150 MB each. Need to share larger files? We are launching a premium Pro plan (coming soon) supporting uploads up to 2 GB per file.',
     },
     {
       q: 'Does WalkFiles automatically delete inactive uploads?',
-      a: 'Yes, on the Free plan, files that receive no downloads or access for 90 consecutive days are automatically cleaned up to save server resources. Active files remain online indefinitely. Paid tiers will have no automated cleanup.',
+      a: 'No, files are kept forever on all plans, including the Free plan, as long as they comply with our Terms of Service.',
     },
     {
       q: 'Are my file uploads private?',
@@ -165,8 +165,8 @@ export default function LandingPage() {
     },
     {
       icon: <Clock size={20} />,
-      title: 'Plan-Based Retention',
-      desc: 'Active files stay forever. Inactive files are automatically cleaned up after 90 days of zero download traffic on free tiers.',
+      title: 'Permanent Storage',
+      desc: 'Files are kept forever on all plans. No automatic deletion or inactive cleanup rules for your uploads.',
       color: 'var(--warning-color)'
     },
     {
@@ -244,7 +244,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="hero-subtitle">
-            The premier high-speed Pixeldrain and Gofile alternative. Securely host, transfer, and share files or folders up to 1 GB completely free. Includes native media previews and zero download limits.
+            The premier high-speed Pixeldrain and Gofile alternative. Securely host, transfer, and share files or folders up to 5 GB completely free. Includes native media previews and zero download limits.
           </p>
 
           <div className="hero-cta-group">
@@ -429,7 +429,7 @@ export default function LandingPage() {
 
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginTop: 'auto', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <CheckCircle2 size={12} className="sb-green-text" /> Up to 1 GB free
+                <CheckCircle2 size={12} className="sb-green-text" /> Up to 5 GB free
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <CheckCircle2 size={12} className="sb-green-text" /> Cryptographic keys
@@ -514,22 +514,21 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Card 5: Standard - Smart Expiry */}
           <div className="bento-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#121214', border: '1px solid rgba(255,255,255,0.03)', color: '#f59e0b' }}>
                 <Clock size={18} />
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', margin: 0 }}>Smart Retention</h3>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', margin: 0 }}>Permanent Retention</h3>
             </div>
 
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.5, margin: 0 }}>
-              Keep active files forever. Inactive files are automatically cleaned up after 90 consecutive days of zero traffic.
+              Files are kept online forever on all plans. We do not automatically expire or delete your inactive uploads.
             </p>
 
             <div className="visual-upload-mock" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
-              <span>Inactive status:</span>
-              <span className="sb-purple-text" style={{ fontWeight: 600 }}>90 Days Remaining</span>
+              <span>File status:</span>
+              <span className="sb-green-text" style={{ fontWeight: 600 }}>Permanent Storage</span>
             </div>
           </div>
 
@@ -843,7 +842,7 @@ export default function LandingPage() {
                 Create a Free Account
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                To upload files and manage your shared links, please sign up or log in. It takes less than 30 seconds and includes 1 GB of free storage.
+                To upload files and manage your shared links, please sign up or log in. It takes less than 30 seconds and includes 5 GB of free storage.
               </p>
             </div>
 

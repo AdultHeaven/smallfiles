@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "WalkFiles — Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
     description:
-      "Upload and share folders, documents, images, and videos securely up to 1 GB for free. Powered by direct Cloudflare R2 browser uploads.",
+      "Upload and share folders, documents, images, and videos securely up to 5 GB for free. Powered by direct Cloudflare R2 browser uploads.",
     url: "https://walkfiles.com",
     siteName: "WalkFiles",
     type: "website",

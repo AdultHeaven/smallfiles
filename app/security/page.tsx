@@ -34,8 +34,8 @@ export default function SecurityPage() {
     },
     {
       icon: RefreshCw,
-      title: 'Auto-Expiring Shares',
-      desc: 'Clean up security footprints automatically. Free tier shares automatically clean up after 90 consecutive days of inactivity, while paid tiers support custom expiration limits.',
+      title: 'Custom Expiring Shares',
+      desc: 'Clean up security footprints automatically. Set custom expiration dates and times on your shared download links to restrict temporal access.',
       color: '#3ecf8e'
     },
     {

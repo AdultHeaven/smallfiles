@@ -31,10 +31,10 @@ const STATIC_PLANS: PlanDetails[] = [
     name: 'Free',
     slug: 'free',
     price: 0,
-    storage: '1 GB',
-    storageLimit: 1073741824,
-    maxFileSize: '25 MB',
-    maxFileLimit: 26214400,
+    storage: '5 GB',
+    storageLimit: 5368709120,
+    maxFileSize: '150 MB',
+    maxFileLimit: 157286400,
     uploads: '50 uploads / day',
     desc: 'Perfect for simple sharing and temporary file transfers.',
     features: [
@@ -59,7 +59,7 @@ const STATIC_PLANS: PlanDetails[] = [
     storageLimit: 26843545600,
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
-    uploads: 'Unlimited',
+    uploads: '50 uploads / day',
     desc: 'Great for personal cloud storage and basic sharing settings.',
     features: [
       { text: 'Everything in Free plus:', header: true },
@@ -84,7 +84,7 @@ const STATIC_PLANS: PlanDetails[] = [
     storageLimit: 107374182400,
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
-    uploads: 'Unlimited',
+    uploads: '50 uploads / day',
     desc: 'For creators and power users requiring larger security settings.',
     features: [
       { text: 'Everything in Starter plus:', header: true },
@@ -109,8 +109,8 @@ const STATIC_PLANS: PlanDetails[] = [
     storageLimit: 536870912000,
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
-    uploads: 'Unlimited',
-    desc: 'Unlimited uploads, huge R2 hosting capacity, and premium speed tiers.',
+    uploads: '50 uploads / day',
+    desc: '50 daily uploads, huge R2 hosting capacity, and premium speed tiers.',
     features: [
       { text: 'Everything in Pro plus:', header: true },
       { text: 'Premium network performance' },
@@ -531,8 +531,8 @@ export default function PricingPage() {
                     desc: 'Perfect for simple sharing and temporary file transfers.',
                     color: '#3b82f6',
                     features: [
-                      '1 GB Total Storage limit',
-                      '25 MB Maximum File Size',
+                      '5 GB Total Storage limit',
+                      '150 MB Maximum File Size',
                       '50 Uploads daily limit',
                       'Public share links',
                       'Basic download speeds'
@@ -546,7 +546,7 @@ export default function PricingPage() {
                     features: [
                       '25 GB Total Storage limit',
                       '2 GB Maximum File Size',
-                      'Unlimited uploads allowed',
+                      '50 Uploads daily limit',
                       'Faster download speeds',
                       'Password-protected sharing'
                     ]
@@ -559,7 +559,7 @@ export default function PricingPage() {
                     features: [
                       '100 GB Total Storage limit',
                       '2 GB Maximum File Size',
-                      'Unlimited uploads allowed',
+                      '50 Uploads daily limit',
                       'Highest download speeds',
                       'Advanced analytics dashboard'
                     ]
@@ -567,12 +567,12 @@ export default function PricingPage() {
                   elite: {
                     name: 'Elite',
                     price: '$19.99',
-                    desc: 'Unlimited uploads, huge capacity, and premium speed tiers.',
+                    desc: '50 daily uploads, huge capacity, and premium speed tiers.',
                     color: '#a78bfa',
                     features: [
                       '500 GB Total Storage limit',
                       '2 GB Maximum File Size',
-                      'Unlimited uploads allowed',
+                      '50 Uploads daily limit',
                       'Premium network performance',
                       'Highest priority support queue'
                     ]
@@ -655,7 +655,7 @@ export default function PricingPage() {
                 </div>
                 <input
                   type="range"
-                  min="1"
+                  min="5"
                   max="520"
                   step="1"
                   value={sliderValue}
@@ -671,7 +671,7 @@ export default function PricingPage() {
                   }}
                 />
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                  <span>1 GB</span>
+                  <span>5 GB</span>
                   <span>100 GB</span>
                   <span>250 GB</span>
                   <span>500 GB</span>
@@ -681,7 +681,7 @@ export default function PricingPage() {
               {/* Bill Details Panel */}
               {(() => {
                 const getCalculatorPlan = (val: number) => {
-                  if (val <= 1) return { name: 'Free', price: 0, color: '#3b82f6' };
+                  if (val <= 5) return { name: 'Free', price: 0, color: '#3b82f6' };
                   if (val <= 25) return { name: 'Starter', price: 1.49, color: '#a855f7' };
                   if (val <= 100) return { name: 'Pro', price: 4.99, color: '#3ecf8e' };
                   if (val <= 500) return { name: 'Elite', price: 19.99, color: '#a78bfa' };
@@ -776,7 +776,7 @@ export default function PricingPage() {
               },
               {
                 q: "What is the file size upload limit?",
-                a: "Free users can upload files up to 25 MB. Starter, Pro, and Elite subscribers enjoy a generous 2 GB file size limit, perfect for sending large media archives, software projects, and high-definition video collections."
+                a: "Free users can upload files up to 150 MB. Starter, Pro, and Elite subscribers enjoy a generous 2 GB file size limit, perfect for sending large media archives, software projects, and high-definition video collections."
               }
             ].map((faq, idx) => {
               const isOpen = openFaq === idx;

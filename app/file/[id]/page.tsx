@@ -370,7 +370,7 @@ export default function FilePage({ params }: Props) {
               <div className="conversion-text">
                 <h3>Want to share your own files?</h3>
                 <p>
-                  Upload folders, documents, images, and videos up to 1 GB completely free. Fast direct R2 transit.
+                  Upload folders, documents, images, and videos up to 5 GB completely free. Fast direct R2 transit.
                 </p>
               </div>
             </div>

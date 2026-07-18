@@ -6,8 +6,8 @@
 CREATE TABLE IF NOT EXISTS public.plans (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
-  storage_limit BIGINT NOT NULL,       -- total storage limit in bytes (1073741824 for 1GB)
-  max_file_size BIGINT NOT NULL,       -- max size per file in bytes (26214400 for 25MB)
+  storage_limit BIGINT NOT NULL,       -- total storage limit in bytes (5368709120 for 5GB)
+  max_file_size BIGINT NOT NULL,       -- max size per file in bytes (157286400 for 150MB)
   daily_upload_limit INT NOT NULL,     -- maximum files allowed to upload in 24h
   retention_days INT NULL,             -- inactive retention period in days (NULL = never delete)
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
@@ -22,9 +22,9 @@ CREATE POLICY "Anyone can view plans"
   FOR SELECT 
   USING (true);
 
--- Insert default free plan limits (1GB storage, 25MB max size, 50 daily uploads, 90 days retention)
+-- Insert default free plan limits (5GB storage, 150MB max size, 50 daily uploads, no retention)
 INSERT INTO public.plans (id, name, storage_limit, max_file_size, daily_upload_limit, retention_days)
-VALUES ('free', 'Free', 1073741824, 26214400, 50, 90)
+VALUES ('free', 'Free', 5368709120, 157286400, 50, NULL)
 ON CONFLICT (id) DO UPDATE 
 SET 
   name = EXCLUDED.name,
@@ -33,9 +33,9 @@ SET
   daily_upload_limit = EXCLUDED.daily_upload_limit,
   retention_days = EXCLUDED.retention_days;
 
--- Insert default pro plan limits (25GB storage, 2GB max file size, 1,000,000 daily uploads, NULL retention)
+-- Insert default pro plan limits (25GB storage, 2GB max file size, 50 daily uploads, NULL retention)
 INSERT INTO public.plans (id, name, storage_limit, max_file_size, daily_upload_limit, retention_days)
-VALUES ('pro', 'Pro', 26843545600, 2147483648, 1000000, NULL)
+VALUES ('pro', 'Pro', 26843545600, 2147483648, 50, NULL)
 ON CONFLICT (id) DO UPDATE 
 SET 
   name = EXCLUDED.name,
@@ -227,8 +227,9 @@ UPDATE public.plans
 SET 
   slug = 'free',
   price_monthly = 0.00,
-  storage_bytes = 1073741824,
-  max_file_size_bytes = 26214400,
+  storage_bytes = 5368709120,
+  max_file_size_bytes = 157286400,
+  retention_days = NULL,
   ads_enabled = true,
   download_speed_tier = 'basic',
   priority_support = false,
@@ -249,6 +250,7 @@ SET
   max_file_size = 2147483648, -- 2 GB
   storage_bytes = 107374184000, -- 100 GB
   max_file_size_bytes = 2147483648, -- 2 GB
+  daily_upload_limit = 50,
   ads_enabled = false,
   download_speed_tier = 'highest',
   priority_support = false,
@@ -261,9 +263,9 @@ SET
   sort_order = 2
 WHERE id = 'pro';
 
--- Insert Starter plan limits (25GB storage, 2GB max file size, unlimited daily uploads, no retention)
+-- Insert Starter plan limits (25GB storage, 2GB max file size, 50 daily uploads, no retention)
 INSERT INTO public.plans (id, name, slug, price_monthly, storage_limit, max_file_size, storage_bytes, max_file_size_bytes, daily_upload_limit, retention_days, ads_enabled, download_speed_tier, priority_support, analytics_level, password_links, link_expiration, bulk_upload, early_access, active, sort_order)
-VALUES ('starter', 'Starter', 'starter', 1.49, 26843545600, 2147483648, 26843545600, 2147483648, 1000000, NULL, false, 'fast', false, 'basic', true, true, false, false, true, 1)
+VALUES ('starter', 'Starter', 'starter', 1.49, 26843545600, 2147483648, 26843545600, 2147483648, 50, NULL, false, 'fast', false, 'basic', true, true, false, false, true, 1)
 ON CONFLICT (id) DO UPDATE
 SET 
   name = EXCLUDED.name,
@@ -284,9 +286,9 @@ SET
   active = EXCLUDED.active,
   sort_order = EXCLUDED.sort_order;
 
--- Insert Elite plan limits (500GB storage, 2GB max file size, unlimited daily uploads, no retention)
+-- Insert Elite plan limits (500GB storage, 2GB max file size, 50 daily uploads, no retention)
 INSERT INTO public.plans (id, name, slug, price_monthly, storage_limit, max_file_size, storage_bytes, max_file_size_bytes, daily_upload_limit, retention_days, ads_enabled, download_speed_tier, priority_support, analytics_level, password_links, link_expiration, bulk_upload, early_access, active, sort_order)
-VALUES ('elite', 'Elite', 'elite', 19.99, 536870912000, 2147483648, 536870912000, 2147483648, 1000000, NULL, false, 'premium', true, 'advanced', true, true, true, true, true, 3)
+VALUES ('elite', 'Elite', 'elite', 19.99, 536870912000, 2147483648, 536870912000, 2147483648, 50, NULL, false, 'premium', true, 'advanced', true, true, true, true, true, 3)
 ON CONFLICT (id) DO UPDATE
 SET 
   name = EXCLUDED.name,
