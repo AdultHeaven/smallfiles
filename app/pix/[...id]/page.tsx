@@ -198,7 +198,6 @@ export default function FilePage({ params }: Props) {
         />
       )}
               <AdBanner/>
-              <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
       
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">

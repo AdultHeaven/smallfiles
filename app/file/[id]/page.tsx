@@ -23,7 +23,7 @@ import {
   X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
-import Script from 'next/script';
+
 
 
 type Props = {
@@ -377,7 +377,6 @@ export default function FilePage({ params }: Props) {
               <ArrowRight size={12} />
             </Link>
           </div>
-          <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
         </div>
       </main>
 
