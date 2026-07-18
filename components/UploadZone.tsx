@@ -1,14 +1,14 @@
 // components/UploadZone.tsx
 'use client';
 
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { 
-  UploadCloud, 
-  CheckCircle, 
-  AlertCircle, 
-  Copy, 
-  X, 
+import {
+  UploadCloud,
+  CheckCircle,
+  AlertCircle,
+  Copy,
+  X,
   Loader2,
   FileImage,
   FileVideo,
@@ -40,6 +40,22 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
   const [files, setFiles] = useState<UploadingFile[]>([]);
   const uploadTasks = useRef<{ [key: string]: XMLHttpRequest }>({});
   const cancelledUploads = useRef<Set<string>>(new Set());
+  const [profile, setProfile] = useState<any>(null);
+
+  useEffect(() => {
+    async function loadProfile() {
+      try {
+        const res = await fetch('/api/profile');
+        if (res.ok) {
+          const data = await res.json();
+          setProfile(data);
+        }
+      } catch (err) {
+        console.error('Error fetching profile in UploadZone:', err);
+      }
+    }
+    loadProfile();
+  }, []);
 
   const formatSize = (bytes: number) => {
     if (bytes === 0) return '0 B';
@@ -134,11 +150,11 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
             prev.map((f) =>
               f.id === id
                 ? {
-                    ...f,
-                    progress,
-                    speed,
-                    timeRemaining,
-                  }
+                  ...f,
+                  progress,
+                  speed,
+                  timeRemaining,
+                }
                 : f
             )
           );
@@ -192,7 +208,7 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
       }
 
       const registeredFile = await regRes.json();
-      const shareLink = registeredFile.short_code 
+      const shareLink = registeredFile.short_code
         ? `${window.location.origin}/f/${registeredFile.short_code}`
         : `${window.location.origin}/download/${registeredFile.id}`;
 
@@ -205,11 +221,11 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
         prev.map((f) =>
           f.id === id
             ? {
-                ...f,
-                status: 'success',
-                progress: 100,
-                shareLink,
-              }
+              ...f,
+              status: 'success',
+              progress: 100,
+              shareLink,
+            }
             : f
         )
       );
@@ -225,10 +241,10 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
           prev.map((f) =>
             f.id === id
               ? {
-                  ...f,
-                  status: 'failed',
-                  error: err.message || 'An unexpected error occurred.',
-                }
+                ...f,
+                status: 'failed',
+                error: err.message || 'An unexpected error occurred.',
+              }
               : f
           )
         );
@@ -268,8 +284,8 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <div 
-        {...getRootProps()} 
+      <div
+        {...getRootProps()}
         className={`dropzone-container ${isDragActive ? 'is-drag-active' : ''}`}
         style={{
           transform: isDragActive ? 'scale(1.015)' : 'scale(1)',
@@ -286,7 +302,7 @@ export default function UploadZone({ onUploadSuccess }: UploadZoneProps) {
             Drag & drop files here, or click to browse
           </p>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-            Supports files up to 25MB (Free Tier)
+            Supports files up to {profile?.plan?.max_file_size ? formatSize(profile.plan.max_file_size) : '150 MB'} ({profile?.plan?.name || 'Free'} Tier)
           </p>
         </div>
       </div>
