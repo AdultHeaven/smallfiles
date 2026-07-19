@@ -32,24 +32,7 @@
 
 //   return (
 //     <div className="pf-root">
-//       <Script id="adsterra-popunder" strategy="afterInteractive">
-//         {\`
-//           (function(mqt){
-//           var d = document,
-//               s = d.createElement('script'),
-//               l = d.scripts[d.scripts.length - 1];
-//           s.settings = mqt || {};
-//           s.src = "//infamous-maximum.com/cbDA9W6_b.2n5bl/SsWyQI9TNPzYE_5OO/DDgPyhNoSE0b3nMpTzkm4XOYDiIX5I";
-//           s.async = true;
-//           s.referrerPolicy = 'no-referrer-when-downgrade';
-//           if (l && l.parentNode) {
-//             l.parentNode.insertBefore(s, l);
-//           } else {
-//             d.head.appendChild(s);
-//           }
-//           })({})
-//         \`}
-//       </Script>
+//       <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
 
 //       {/* Header */}
 //       <header className="pf-header pf-header-min">
@@ -155,24 +138,7 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="pf-root">
-      <Script id="adsterra-popunder" strategy="afterInteractive">
-        {`
-          (function(mqt){
-          var d = document,
-              s = d.createElement('script'),
-              l = d.scripts[d.scripts.length - 1];
-          s.settings = mqt || {};
-          s.src = "//infamous-maximum.com/cbDA9W6_b.2n5bl/SsWyQI9TNPzYE_5OO/DDgPyhNoSE0b3nMpTzkm4XOYDiIX5I";
-          s.async = true;
-          s.referrerPolicy = 'no-referrer-when-downgrade';
-          if (l && l.parentNode) {
-            l.parentNode.insertBefore(s, l);
-          } else {
-            d.head.appendChild(s);
-          }
-          })({})
-        `}
-      </Script>
+      <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
  {/* <Script
         src="https://tinysentgrowled.com/43/4b/c6/434bc6f3f3a3615a603923aca7a94e6e.js"
         strategy="afterInteractive"
