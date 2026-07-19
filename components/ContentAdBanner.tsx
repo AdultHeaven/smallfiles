@@ -20,7 +20,7 @@ export default function ContentAdBanner() {
       (function(yhk){
       var d = document,
           s = d.createElement('script'),
-          l = d.scripts[d.scripts.length - 1];
+          l = d.currentScript;
       s.settings = yhk || {};
       s.src = "//illustrious-consideration.com/bpX.VjsHdyGsl/0iYyWCcG/heAm-9XuKZaU/lvkRPGTYcgyZMwz/g/0yNWjyEftAN/zSIhzgOHDBQJ2WNdQk";
       s.async = true;

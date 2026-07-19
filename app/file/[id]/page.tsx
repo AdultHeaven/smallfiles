@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ContentAdBanner from '@/components/ContentAdBanner';
+import AdBanner from '@/components/AdBanner';
 
 
 
@@ -381,6 +382,7 @@ export default function FilePage({ params }: Props) {
             </Link>
           </div>
           <ContentAdBanner />
+          <AdBanner />
         </div>
       </main>
 
