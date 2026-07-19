@@ -105,6 +105,7 @@ import '../../filePagePix.css';
 import Script from 'next/script';
 import AdBanner from '../../components/AdBanner';
 import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
+import ContentAdBanner from '@/components/ContentAdBanner';
 
 
 type Props = { params: { id: string[] } };
@@ -197,7 +198,8 @@ export default function FilePage({ params }: Props) {
           onClick={() => setShowOverlay(false)}
         />
       )}
-              <AdBanner/>
+      <ContentAdBanner />
+      <AdBanner/>
       
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">
