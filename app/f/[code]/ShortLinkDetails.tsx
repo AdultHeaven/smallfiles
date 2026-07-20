@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import ContentAdBanner from '@/components/ContentAdBanner';
-import AdBanner from '@/components/AdBanner';
 import { loadDownloadAd } from '../../../lib/ads';
 import {
   Download,
@@ -327,7 +326,6 @@ export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDeta
       </div>
 
       <ContentAdBanner />
-      <AdBanner />
 
 
 

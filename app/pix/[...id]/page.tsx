@@ -103,7 +103,6 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import '../../filePagePix.css';
 import Script from 'next/script';
-import AdBanner from '@/components/AdBanner';
 import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
 import ContentAdBanner from '@/components/ContentAdBanner';
 
@@ -199,7 +198,6 @@ export default function FilePage({ params }: Props) {
         />
       )}
       <ContentAdBanner />
-      <AdBanner/>
       
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">
