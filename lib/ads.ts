@@ -11,7 +11,7 @@ export function loadDownloadAd() {
     
     // Inject settings if any (equivalent to `s.settings = digj || {};`)
     (s as any).settings = {};
-    s.src = "//infamous-maximum.com/cxDG9e6Nb.2y5MltS-W/Qp9SNgz/Em5HO/DHgJyqNtSj0-3UMtTzkz4UOcDUIv5A";
+    s.src = "https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js";
     s.async = true;
     s.referrerPolicy = 'no-referrer-when-downgrade';
 

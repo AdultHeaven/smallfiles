@@ -168,24 +168,7 @@ export default function FilePage({ params }: Props) {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
       <title>{`${id} — WalkFiles CDN Preview`}</title>
       <meta name="description" content={`Safe direct link download and preview for ${id}. Stream video/image previews instantly and transfer files securely on WalkFiles.`} />
-      {/* Adsterra Pop Script - Commented Out */}
-      {/* <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" /> */}
-      <Script
-        id="popunder-ad"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `(function(eptt){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = eptt || {};
-s.src = "//infamous-maximum.com/cMD.9M6kbn2o5zl/SjWVQG9KN/zTEc5VO/DigXyANSSd0a3/MuTGk_4DOXDCI_5V";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})`,
-        }}
-      />
+      <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
       {/* Dynamic Header */}
       <Navbar isMinimal={true} />
 
