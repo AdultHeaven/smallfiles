@@ -1,45 +1,62 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 export default function ContentAdBanner() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const adHtml1 = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style>
+          body { margin: 0; padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: transparent; }
+        </style>
+      </head>
+      <body>
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '1c45f1e48300724fb8735f20e1eb080a',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="https://roomsmergeshipwreck.com/1c45f1e48300724fb8735f20e1eb080a/invoke.js"></script>
+      </body>
+    </html>
+  `;
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    // Clear previous contents
-    containerRef.current.innerHTML = "";
-
-    // Create the script element
-    const scriptEl = document.createElement("script");
-    scriptEl.type = "text/javascript";
-    
-    // Set the script content
-    scriptEl.innerHTML = `
-      (function(yhk){
-      var d = document,
-          s = d.createElement('script'),
-          l = d.currentScript;
-      s.settings = yhk || {};
-      s.src = "//illustrious-consideration.com/bpX.VjsHdyGsl/0iYyWCcG/heAm-9XuKZaU/lvkRPGTYcgyZMwz/g/0yNWjyEftAN/zSIhzgOHDBQJ2WNdQk";
-      s.async = true;
-      s.referrerPolicy = 'no-referrer-when-downgrade';
-      if (l && l.parentNode) {
-        l.parentNode.insertBefore(s, l);
-      } else {
-        d.head.appendChild(s);
-      }
-      })({})
-    `;
-
-    // Append script to container to execute it
-    containerRef.current.appendChild(scriptEl);
-  }, []);
+  const adHtml2 = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style>
+          body { margin: 0; padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: transparent; }
+        </style>
+      </head>
+      <body>
+        <script async="async" data-cfasync="false" src="https://roomsmergeshipwreck.com/aab82868cadb44d8a198e3bf3af362a0/invoke.js"></script>
+        <div id="container-aab82868cadb44d8a198e3bf3af362a0"></div>
+      </body>
+    </html>
+  `;
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0", minHeight: "50px", width: "100%" }}>
-      <div ref={containerRef} style={{ width: "100%", display: "flex", justifyContent: "center" }} />
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", margin: "24px 0", width: "100%" }}>
+      <iframe
+        srcDoc={adHtml1}
+        width="300"
+        height="250"
+        style={{ border: "none", overflow: "hidden" }}
+        scrolling="no"
+        title="Ad Banner Top"
+      />
+      <iframe
+        srcDoc={adHtml2}
+        width="100%"
+        height="300"
+        style={{ border: "none", overflow: "hidden" }}
+        scrolling="no"
+        title="Ad Banner Native"
+      />
     </div>
   );
 }
