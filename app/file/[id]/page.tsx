@@ -64,12 +64,13 @@ export default function FilePage({ params }: Props) {
   useEffect(() => {
     fetch(fileUrl, { method: 'HEAD' })
       .then((res) => {
+        if (!res.ok) return;
         const length = res.headers.get('content-length');
         const modified = res.headers.get('last-modified');
         if (length) setFileSize(parseInt(length));
         if (modified) setCreatedAt(new Date(modified).toLocaleDateString());
       })
-      .catch((err) => console.error('Error fetching file size:', err));
+      .catch(() => {});
   }, [fileUrl]);
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
