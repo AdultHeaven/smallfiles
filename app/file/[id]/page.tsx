@@ -24,7 +24,6 @@ import {
   X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
-import ContentAdBanner from '@/components/ContentAdBanner';
 
 
 
@@ -380,7 +379,6 @@ export default function FilePage({ params }: Props) {
               <ArrowRight size={12} />
             </Link>
           </div>
-          <ContentAdBanner />
         </div>
       </main>
 

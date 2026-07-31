@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
-import ContentAdBanner from '@/components/ContentAdBanner';
 import { loadDownloadAd } from '../../../lib/ads';
 import { 
   Download, 
@@ -323,8 +322,6 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
           <ArrowRight size={12} />
         </Link>
       </div>
-
-      <ContentAdBanner />
 
 
 

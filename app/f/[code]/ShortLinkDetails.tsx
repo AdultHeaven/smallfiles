@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Script from 'next/script';
-import ContentAdBanner from '@/components/ContentAdBanner';
 import { loadDownloadAd } from '../../../lib/ads';
 import {
   Download,
@@ -122,7 +120,7 @@ export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDeta
 
   return (
     <div className="preview-container" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', maxWidth: '1080px', margin: '0 auto' }}>
-      
+
       {/* Split Layout: Left Preview, Right Sidebar */}
       <div className="split-layout">
 
@@ -323,8 +321,6 @@ export default function ShortLinkDetails({ file, downloadUrl }: { file: FileDeta
           <ArrowRight size={12} />
         </Link>
       </div>
-
-      <ContentAdBanner />
 
 
 
