@@ -166,6 +166,10 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
+      <Script
+        src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js"
+        strategy="afterInteractive"
+      />
       <title>{`${id} — WalkFiles CDN Preview`}</title>
       <meta name="description" content={`Safe direct link download and preview for ${id}. Stream video/image previews instantly and transfer files securely on WalkFiles.`} />
       {/* Dynamic Header */}

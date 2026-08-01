@@ -121,6 +121,10 @@ export default function DownloadDetails({ file, downloadUrl }: { file: FileDetai
 
   return (
     <div className="preview-container" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', maxWidth: '1080px', margin: '0 auto' }}>
+      <Script
+        src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js"
+        strategy="afterInteractive"
+      />
       
       {/* Split Layout: Left Preview, Right Sidebar */}
       <div className="split-layout">
