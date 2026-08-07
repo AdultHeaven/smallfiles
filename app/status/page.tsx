@@ -55,7 +55,7 @@ export default function StatusPage() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
-      <title>WalkFiles Service Status — Systems Performance</title>
+      <title>WalkFiles Service Status - Systems Performance</title>
       <meta name="description" content="Check real-time performance, uptime tracking, and service status of WalkFiles storage infrastructure." />
       <Navbar />
 

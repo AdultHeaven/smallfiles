@@ -170,7 +170,8 @@ export default function FilePage({ params }: Props) {
         src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js"
         strategy="afterInteractive"
       />
-      <title>{`${id} — WalkFiles CDN Preview`}</title>
+      <title>{`${id} - WalkFiles CDN Preview`}</title>
+      <meta name="robots" content="noindex, nofollow" />
       <meta name="description" content={`Safe direct link download and preview for ${id}. Stream video/image previews instantly and transfer files securely on WalkFiles.`} />
       {/* Dynamic Header */}
       <Navbar isMinimal={true} />
@@ -374,7 +375,7 @@ export default function FilePage({ params }: Props) {
               <div className="conversion-text">
                 <h3>Want to share your own files?</h3>
                 <p>
-                  Upload folders, documents, images, and videos up to 5 GB completely free. Fast direct R2 transit.
+                  Upload folders, documents, images, and videos up to 5 GB completely free. Fast direct cloud transit.
                 </p>
               </div>
             </div>

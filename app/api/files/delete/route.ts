@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Forbidden. You do not own this file.' }, { status: 403 });
     }
 
-    // 1. Delete from Cloudflare R2
+    // 1. Delete from object storage
     try {
       await deleteObject(file.r2_key);
     } catch (r2Error) {

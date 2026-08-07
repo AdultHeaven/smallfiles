@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "WalkFiles — Private, High-Speed & Secure File Sharing",
+    default: "WalkFiles - Private, High-Speed & Secure File Sharing",
     template: "%s | WalkFiles"
   },
   description:
@@ -27,15 +27,8 @@ export const metadata: Metadata = {
     "gofile alternative",
     "pixeldrain alternative",
     "wetransfer alternative",
-    "mega alternative",
-    "mediafire alternative",
-    "dropbox alternative",
-    "cloudflare r2",
-    "anonymous upload",
-    "video sharing",
-    "folder preview",
-    "share large files",
-    "free storage hosting"
+    "gofile alternative",
+    "secure file transfer",
   ],
   robots: {
     index: true,
@@ -54,24 +47,22 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "WalkFiles — Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
-    description:
-      "Upload and share folders, documents, images, and videos securely up to 5 GB for free. Powered by direct Cloudflare R2 browser uploads.",
-    url: "https://walkfiles.com",
+    title: "WalkFiles - Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
+    description: "Upload and share files instantly with zero throttling, high-speed CDN routing, and private stream previews.",
     siteName: "WalkFiles",
     type: "website",
     images: [
       {
-        url: "https://walkfiles.com/favicon.ico",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "WalkFiles Secure File Hosting",
+        alt: "WalkFiles - High-Speed Private File Sharing",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WalkFiles — Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
+    title: "WalkFiles - Private & Fast File Sharing (Pixeldrain & Gofile Alternative)",
     description:
       "Upload and share files securely with zero speed limits and native browser media previews.",
     images: ["https://walkfiles.com/favicon.ico"],
@@ -95,36 +86,39 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "WalkFiles",
-              "url": "https://walkfiles.com",
-              "description": "WalkFiles is a high-speed, secure, and private file sharing platform. Share files anonymously or sign up for larger cloud storage, with direct browser downloads and native media preview player support.",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://walkfiles.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "WalkFiles",
+                "url": "https://walkfiles.com",
+                "description": "WalkFiles is a high-speed, secure, and private cloud storage and file sharing platform. Share files anonymously or sign up for cloud storage with direct CDN downloads and native media previews.",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://walkfiles.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                },
+                "author": {
+                  "@type": "Organization",
+                  "name": "WalkFiles Team",
+                  "logo": "https://walkfiles.com/favicon.ico"
+                }
               },
-              "author": {
-                "@type": "Organization",
-                "name": "WalkFiles Team",
-                "logo": "https://walkfiles.com/favicon.ico"
-              },
-              "sameAs": [
-                "https://twitter.com/walkfiles",
-                "https://github.com/walkfiles"
-              ],
-              "applicationCategory": "File Sharing Service, Cloud Storage",
-              "operatingSystem": "All",
-              "offers": {
-                "@type": "AggregateOffer",
-                "priceCurrency": "USD",
-                "lowPrice": "0",
-                "highPrice": "15.00",
-                "offerCount": "3"
+              {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "WalkFiles",
+                "applicationCategory": "MultimediaApplication, CloudStorageApplication, FileTransfer",
+                "operatingSystem": "Web, All",
+                "url": "https://walkfiles.com",
+                "description": "Fast, private cloud storage and instant file sharing alternative to Pixeldrain, Gofile, and WeTransfer. Offers direct CDN downloads, zero speed limits, and streaming previews.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD"
+                }
               }
-            })
+            ])
           }}
         />
       </head>

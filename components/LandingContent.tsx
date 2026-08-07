@@ -43,8 +43,8 @@ export default function LandingContent() {
       a: 'Absolutely. Every file upload is linked to your secure user account. Our database enforces Row-Level Security (RLS), meaning only you can manage your files, and public sharing links are only generated if you explicitly request them.',
     },
     {
-      q: 'How does WalkFiles manage direct R2 uploads?',
-      a: 'WalkFiles uses direct browser uploads. We generate a secure pre-signed R2 URL on the server, allowing your browser to transfer files straight to Cloudflare R2 secure object storage. This ensures maximum upload speeds and minimal transit lag.',
+      q: 'How does WalkFiles manage direct cloud uploads?',
+      a: 'WalkFiles uses direct browser uploads. We generate a secure pre-signed URL on the server, allowing your browser to transfer files straight to encrypted cloud object storage. This ensures maximum upload speeds and minimal transit lag.',
     },
   ];
 
@@ -52,7 +52,7 @@ export default function LandingContent() {
     {
       icon: <Zap size={20} />,
       title: 'Direct Browser Uploads',
-      desc: 'Bypass slow server proxies. Your browser uploads directly to Cloudflare R2 using military-grade HTTPS presigned authentication.',
+      desc: 'Bypass slow server proxies. Your browser uploads directly to secure object storage using military-grade HTTPS presigned authentication.',
       color: 'var(--accent-color)'
     },
     {

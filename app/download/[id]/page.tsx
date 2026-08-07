@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!file) {
     return {
-      title: 'File Not Found — WalkFiles',
+      title: 'File Not Found - WalkFiles',
     };
   }
 
@@ -31,8 +31,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 
   return {
-    title: `Download ${file.original_name} (${formatSize(file.size)}) — WalkFiles`,
+    title: `Download ${file.original_name} (${formatSize(file.size)}) - WalkFiles`,
     description: `Securely stream, preview, and download ${file.original_name} (${formatSize(file.size)}) instantly. WalkFiles provides high-speed file transfers with direct CDN links and zero limits.`,
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 

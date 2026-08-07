@@ -31,7 +31,7 @@ export default function ContactPage() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
-      <title>Contact WalkFiles Support Team — Customer Service</title>
+      <title>Contact WalkFiles Support Team - Customer Service</title>
       <meta name="description" content="Reach out to WalkFiles for general assistance, enterprise queries, account billing help, or to file abuse and DMCA reports." />
       <Navbar />
 

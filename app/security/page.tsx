@@ -48,7 +48,7 @@ export default function SecurityPage() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
-      <title>Security & Privacy Protection — WalkFiles</title>
+      <title>Security & Privacy Protection - WalkFiles</title>
       <meta name="description" content="Discover WalkFiles direct cloud encryption, isolated account security systems, link passwords, and auto-expiration features." />
       <Navbar />
 

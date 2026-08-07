@@ -18,7 +18,7 @@ export default function PrivacyPage() {
 
           <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginTop: '16px' }}>1. Information We Collect</h2>
           <p>
-            When you register, we collect your email address. During file uploads, we collect file metadata (name, size, MIME type). Files are uploaded directly from your browser to Cloudflare R2 bucket storage via secure HTTPS.
+            When you register, we collect your email address. During file uploads, we collect file metadata (name, size, MIME type). Files are uploaded directly from your browser to secure cloud object storage via encrypted HTTPS.
           </p>
 
           <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginTop: '16px' }}>2. Data Storage & Security</h2>
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
 
           <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginTop: '16px' }}>4. Data Deletion</h2>
           <p>
-            You can delete any of your files at any time via the WalkFiles dashboard. Deleting a file instantly removes its database metadata and purges it from our Cloudflare R2 storage bucket.
+            You can delete any of your files at any time via the WalkFiles dashboard. Deleting a file instantly removes its database metadata and purges it from our secure cloud storage.
           </p>
 
           <Link href="/" className="btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '24px' }}>

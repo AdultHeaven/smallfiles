@@ -48,7 +48,7 @@ export default function FeaturesPage() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
-      <title>WalkFiles Features — Optimized Cloud Sharing Infrastructure</title>
+      <title>WalkFiles Features - Optimized Cloud Sharing Infrastructure</title>
       <meta name="description" content="Discover how WalkFiles leverages direct browser streaming uploads, high-speed routing networks, and isolated privacy protocols to deliver private file sharing." />
       <Navbar />
 

@@ -110,7 +110,7 @@ const STATIC_PLANS: PlanDetails[] = [
     maxFileSize: '2 GB',
     maxFileLimit: 2147483648,
     uploads: '50 uploads / day',
-    desc: '50 daily uploads, huge R2 hosting capacity, and premium speed tiers.',
+    desc: '50 daily uploads, huge cloud storage capacity, and premium speed tiers.',
     features: [
       { text: 'Everything in Pro plus:', header: true },
       { text: 'Premium network performance' },
@@ -217,7 +217,7 @@ export default function PricingPage() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
-      <title>Pricing Plans — WalkFiles</title>
+      <title>Pricing Plans - WalkFiles</title>
       <meta name="description" content="Choose the perfect hosting plan for WalkFiles. Expand your limits and unlock high-speed sharing instantly." />
       <Navbar />
 

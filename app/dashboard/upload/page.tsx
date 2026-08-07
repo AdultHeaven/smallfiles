@@ -18,7 +18,7 @@ export default function DashboardUploadPage() {
       <div>
         <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '8px' }}>Upload Files</h1>
         <p style={{ color: 'var(--text-secondary)' }}>
-          Select or drag files to upload directly to Cloudflare R2 secure storage.
+          Select or drag files to upload directly to secure cloud storage.
         </p>
       </div>
 
