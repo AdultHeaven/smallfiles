@@ -168,6 +168,7 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
+      <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
 
       <title>{`${id} - WalkFiles CDN Preview`}</title>
       <meta name="robots" content="noindex, nofollow" />

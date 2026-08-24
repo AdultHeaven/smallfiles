@@ -103,9 +103,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import '../../filePagePix.css';
 import Script from 'next/script';
-import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
 import ContentAdBanner from '@/components/ContentAdBanner';
-import AdsterraNative from '@/components/AdsterraNative';
 
 
 type Props = { params: { id: string[] } };
@@ -139,8 +137,7 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="pf-root">
-
-      <OneTimeAdAutoLoad />
+      <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
 
       {/* Header */}
       <header className="pf-header pf-header-min">
@@ -186,7 +183,6 @@ export default function FilePage({ params }: Props) {
         </section>
 
         {/* High CTR / High CPM Direct Non-sandboxed Adsterra Ads */}
-        <AdsterraNative />
         <ContentAdBanner />
       </main>
 

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import AdsterraNative from './AdsterraNative';
 import AdBanner from './AdBanner';
 
 export default function AdBannersBelowUpload() {
@@ -17,7 +16,6 @@ export default function AdBannersBelowUpload() {
         width: '100%',
       }}
     >
-      <AdsterraNative />
       <AdBanner />
     </div>
   );
