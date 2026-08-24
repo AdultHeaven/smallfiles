@@ -105,6 +105,7 @@ import '../../filePagePix.css';
 import Script from 'next/script';
 import OneTimeAdAutoLoad from "../../components/OneTimeAdAutoLoad";
 import ContentAdBanner from '@/components/ContentAdBanner';
+import AdsterraNative from '@/components/AdsterraNative';
 
 
 type Props = { params: { id: string[] } };
@@ -139,12 +140,7 @@ export default function FilePage({ params }: Props) {
   return (
     <div className="pf-root">
 
- {/* <Script
-        src="https://tinysentgrowled.com/43/4b/c6/434bc6f3f3a3615a603923aca7a94e6e.js"
-        strategy="afterInteractive"
-      /> */}
-
-            {/* <OneTimeAdAutoLoad /> */}
+      <OneTimeAdAutoLoad />
 
       {/* Header */}
       <header className="pf-header pf-header-min">
@@ -188,6 +184,10 @@ export default function FilePage({ params }: Props) {
             />
           </div>
         </section>
+
+        {/* High CTR / High CPM Direct Non-sandboxed Adsterra Ads */}
+        <AdsterraNative />
+        <ContentAdBanner />
       </main>
 
       {/* Transparent overlay */}
@@ -197,7 +197,7 @@ export default function FilePage({ params }: Props) {
           onClick={() => setShowOverlay(false)}
         />
       )}
-      <ContentAdBanner />
+
       
        <footer className="pf-footer" role="contentinfo">
          <div className="pf-footer-inner">

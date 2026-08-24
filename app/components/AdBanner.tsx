@@ -1,3 +1,3 @@
-export default function AdBanner() {
-  return null;
-}
+import AdBanner from '@/components/AdBanner';
+export default AdBanner;
+
