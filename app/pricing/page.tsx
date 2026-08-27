@@ -31,8 +31,8 @@ const STATIC_PLANS: PlanDetails[] = [
     name: 'Free',
     slug: 'free',
     price: 0,
-    storage: '5 GB',
-    storageLimit: 5368709120,
+    storage: '50 GB',
+    storageLimit: 53687091200,
     maxFileSize: '150 MB',
     maxFileLimit: 157286400,
     uploads: '50 uploads / day',
@@ -531,7 +531,7 @@ export default function PricingPage() {
                     desc: 'Perfect for simple sharing and temporary file transfers.',
                     color: '#3b82f6',
                     features: [
-                      '5 GB Total Storage limit',
+                      '50 GB Total Storage limit',
                       '150 MB Maximum File Size',
                       '50 Uploads daily limit',
                       'Public share links',
@@ -671,7 +671,7 @@ export default function PricingPage() {
                   }}
                 />
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                  <span>5 GB</span>
+                  <span>50 GB</span>
                   <span>100 GB</span>
                   <span>250 GB</span>
                   <span>500 GB</span>
@@ -681,8 +681,7 @@ export default function PricingPage() {
               {/* Bill Details Panel */}
               {(() => {
                 const getCalculatorPlan = (val: number) => {
-                  if (val <= 5) return { name: 'Free', price: 0, color: '#3b82f6' };
-                  if (val <= 25) return { name: 'Starter', price: 1.49, color: '#a855f7' };
+                  if (val <= 50) return { name: 'Free', price: 0, color: '#3b82f6' };
                   if (val <= 100) return { name: 'Pro', price: 4.99, color: '#3ecf8e' };
                   if (val <= 500) return { name: 'Elite', price: 19.99, color: '#a78bfa' };
                   return { name: 'Enterprise', price: null, color: '#f4f4f5' };

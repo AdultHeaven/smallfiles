@@ -39,7 +39,7 @@ export function mapPlanDetails(p: any): Plan {
     free: {
       slug: 'free',
       price_monthly: 0,
-      storage_limit: 5368709120,
+      storage_limit: 53687091200,
       max_file_size: 157286400,
       daily_upload_limit: 50,
       retention_days: null,
@@ -118,7 +118,7 @@ export function mapPlanDetails(p: any): Plan {
     name: p.name || planDefault.name || 'Free',
     slug: p.slug || planDefault.slug || 'free',
     price_monthly: typeof p.price_monthly === 'number' ? p.price_monthly : Number(p.price_monthly || planDefault.price_monthly || 0),
-    storage_limit: typeof p.storage_bytes === 'number' ? p.storage_bytes : (typeof p.storage_limit === 'number' ? p.storage_limit : Number(p.storage_bytes || p.storage_limit || planDefault.storage_limit || 5368709120)),
+    storage_limit: typeof p.storage_bytes === 'number' ? p.storage_bytes : (typeof p.storage_limit === 'number' ? p.storage_limit : Number(p.storage_bytes || p.storage_limit || planDefault.storage_limit || 53687091200)),
     max_file_size: typeof p.max_file_size_bytes === 'number' ? p.max_file_size_bytes : (typeof p.max_file_size === 'number' ? p.max_file_size : Number(p.max_file_size_bytes || p.max_file_size || planDefault.max_file_size || 157286400)),
     daily_upload_limit: typeof p.daily_upload_limit === 'number' ? p.daily_upload_limit : Number(p.daily_upload_limit || planDefault.daily_upload_limit || 50),
     retention_days: p.retention_days !== undefined ? p.retention_days : (planDefault.retention_days ?? null),

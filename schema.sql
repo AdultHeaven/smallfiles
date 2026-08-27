@@ -6,7 +6,7 @@
 CREATE TABLE IF NOT EXISTS public.plans (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
-  storage_limit BIGINT NOT NULL,       -- total storage limit in bytes (5368709120 for 5GB)
+  storage_limit BIGINT NOT NULL,       -- total storage limit in bytes (53687091200 for 50GB)
   max_file_size BIGINT NOT NULL,       -- max size per file in bytes (157286400 for 150MB)
   daily_upload_limit INT NOT NULL,     -- maximum files allowed to upload in 24h
   retention_days INT NULL,             -- inactive retention period in days (NULL = never delete)
@@ -22,9 +22,9 @@ CREATE POLICY "Anyone can view plans"
   FOR SELECT 
   USING (true);
 
--- Insert default free plan limits (5GB storage, 150MB max size, 50 daily uploads, no retention)
+-- Insert default free plan limits (50GB storage, 150MB max size, 50 daily uploads, no retention)
 INSERT INTO public.plans (id, name, storage_limit, max_file_size, daily_upload_limit, retention_days)
-VALUES ('free', 'Free', 5368709120, 157286400, 50, NULL)
+VALUES ('free', 'Free', 53687091200, 157286400, 50, NULL)
 ON CONFLICT (id) DO UPDATE 
 SET 
   name = EXCLUDED.name,
@@ -227,7 +227,7 @@ UPDATE public.plans
 SET 
   slug = 'free',
   price_monthly = 0.00,
-  storage_bytes = 5368709120,
+  storage_bytes = 53687091200,
   max_file_size_bytes = 157286400,
   retention_days = NULL,
   ads_enabled = true,

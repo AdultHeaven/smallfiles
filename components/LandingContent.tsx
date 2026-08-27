@@ -28,7 +28,7 @@ export default function LandingContent() {
   const faqs = [
     {
       q: 'What is the storage space limit on the Free plan?',
-      a: 'The Free plan includes 5 GB of secure cloud storage. This is completely free and automatically activated upon registration.',
+      a: 'The Free plan includes 50 GB of secure cloud storage. This is completely free and automatically activated upon registration.',
     },
     {
       q: 'What is the maximum file size I can share?',
@@ -145,7 +145,7 @@ export default function LandingContent() {
           lineHeight: 1.6,
           fontWeight: 400
         }}>
-          Direct browser uploads, native media previews, and smart retention. Save and share files securely up to 5 GB.
+          Direct browser uploads, native media previews, and smart retention. Save and share files securely up to 50 GB.
         </p>
 
         <div style={{ display: 'flex', gap: '16px', marginTop: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -261,7 +261,7 @@ export default function LandingContent() {
       <section style={{ padding: '80px 24px', backgroundColor: 'rgba(255, 255, 255, 0.01)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '12px' }}>Pricing designed to scale</h2>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '0.95rem' }}>Start with 5 GB storage free, then upgrade to premium features when you need more room.</p>
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '0.95rem' }}>Start with 50 GB storage free, then upgrade to premium features when you need more room.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', maxWidth: '800px', margin: '0 auto', textAlign: 'left', alignItems: 'start' }}>
             {/* Free Card */}
@@ -276,7 +276,7 @@ export default function LandingContent() {
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.85rem' }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <CheckCircle2 size={14} style={{ color: 'var(--success-color)' }} />
-                  <span>5 GB Storage space</span>
+                  <span>50 GB Storage space</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <CheckCircle2 size={14} style={{ color: 'var(--success-color)' }} />
@@ -472,7 +472,7 @@ export default function LandingContent() {
                 Create a Free Account
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                To upload files and manage your shared links, please sign up or log in. It takes less than 30 seconds and includes 5 GB of free storage.
+                To upload files and manage your shared links, please sign up or log in. It takes less than 30 seconds and includes 50 GB of free storage.
               </p>
             </div>
 

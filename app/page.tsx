@@ -31,8 +31,8 @@ const STATIC_PLANS = [
     name: 'Free',
     slug: 'free',
     price: 0,
-    storage: '5 GB',
-    storageLimit: 5368709120,
+    storage: '50 GB',
+    storageLimit: 53687091200,
     maxFileSize: '150 MB',
     maxFileLimit: 157286400,
     uploads: '50 uploads / day',
@@ -130,7 +130,7 @@ export default function LandingPage() {
   const faqs = [
     {
       q: 'What is the storage space limit on the Free plan?',
-      a: 'The Free plan includes 5 GB of secure cloud storage. This is completely free and automatically activated upon registration.',
+      a: 'The Free plan includes 50 GB of secure cloud storage. This is completely free and automatically activated upon registration.',
     },
     {
       q: 'What is the maximum file size I can share?',
@@ -244,7 +244,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="hero-subtitle">
-            The premier high-speed Pixeldrain and Gofile alternative. Securely host, transfer, and share files or folders up to 5 GB completely free. Includes native media previews and zero download limits.
+            The premier high-speed Pixeldrain and Gofile alternative. Securely host, transfer, and share files or folders up to 50 GB completely free. Includes native media previews and zero download limits.
           </p>
 
           <div className="hero-cta-group">
@@ -429,7 +429,7 @@ export default function LandingPage() {
 
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginTop: 'auto', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <CheckCircle2 size={12} className="sb-green-text" /> Up to 5 GB free
+                <CheckCircle2 size={12} className="sb-green-text" /> Up to 50 GB free
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <CheckCircle2 size={12} className="sb-green-text" /> Cryptographic keys
@@ -842,7 +842,7 @@ export default function LandingPage() {
                 Create a Free Account
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                To upload files and manage your shared links, please sign up or log in. It takes less than 30 seconds and includes 5 GB of free storage.
+                To upload files and manage your shared links, please sign up or log in. It takes less than 30 seconds and includes 50 GB of free storage.
               </p>
             </div>
 
