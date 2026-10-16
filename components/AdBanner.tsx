@@ -35,7 +35,7 @@ export default function AdBanner() {
 
     const sInvoke = document.createElement('script');
     sInvoke.type = 'text/javascript';
-    sInvoke.src = 'https://roomsmergeshipwreck.com/1c45f1e48300724fb8735f20e1eb080a/invoke.js';
+    sInvoke.src = 'https://biomanos.org/22/1c45f1e48300724fb8735f20e1eb080a';
 
     bannerBox.appendChild(sInvoke);
     wrapper.appendChild(bannerBox);

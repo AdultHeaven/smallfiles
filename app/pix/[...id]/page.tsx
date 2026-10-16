@@ -32,7 +32,7 @@
 
 //   return (
 //     <div className="pf-root">
-//       <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
+//       <Script data-cfasync="false" src="https://benchform.org/1/85ac04720fa9fdfad8d3cd9c95b45495" strategy="afterInteractive" />
 
 //       {/* Header */}
 //       <header className="pf-header pf-header-min">
@@ -137,7 +137,7 @@ export default function FilePage({ params }: Props) {
 
   return (
     <div className="pf-root">
-      <Script src="https://roomsmergeshipwreck.com/85/ac/04/85ac04720fa9fdfad8d3cd9c95b45495.js" strategy="afterInteractive" />
+      <Script data-cfasync="false" src="https://benchform.org/1/85ac04720fa9fdfad8d3cd9c95b45495" strategy="afterInteractive" />
 
       {/* Header */}
       <header className="pf-header pf-header-min">
