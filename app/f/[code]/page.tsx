@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { FileRepository } from '../../../repositories/file.repository';
 import ShortLinkDetails from './ShortLinkDetails';
 import Navbar from '@/components/Navbar';
+import FileContentFooter from '@/components/FileContentFooter';
 
 export const revalidate = 604800; // Cache for 1 week (604800 seconds)
 
@@ -73,9 +74,7 @@ export default async function ShortLinkPage({ params }: PageProps) {
         <ShortLinkDetails file={file} downloadUrl={downloadUrl} />
       </main>
 
-      <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-        © {new Date().getFullYear()} WalkFiles. Cloud sharing made simple.
-      </footer>
+      <FileContentFooter fileName={file.original_name} fileId={file.short_code || file.id} />
     </div>
   );
 }

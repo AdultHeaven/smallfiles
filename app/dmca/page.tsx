@@ -13,6 +13,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import FileContentFooter from '@/components/FileContentFooter';
 
 export default function DmcaPage() {
   return (
@@ -85,10 +86,10 @@ export default function DmcaPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Email Agent:</span>
               <a
-                href="mailto:copyright@walkfiles.com"
+                href="mailto:admin@walkfiles.com"
                 className="mailto-badge"
               >
-                <span>copyright@walkfiles.com</span>
+                <span>admin@walkfiles.com</span>
                 <ExternalLink size={12} />
               </a>
             </div>
@@ -151,9 +152,7 @@ export default function DmcaPage() {
       </main>
 
       {/* Footer */}
-      <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-        © {new Date().getFullYear()} WalkFiles. Cloud sharing made simple.
-      </footer>
+      <FileContentFooter />
 
       {/* Embedded Styles */}
       <style dangerouslySetInnerHTML={{

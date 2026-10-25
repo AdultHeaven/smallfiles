@@ -26,6 +26,7 @@ import {
   X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import FileContentFooter from '@/components/FileContentFooter';
 
 
 
@@ -392,23 +393,7 @@ export default function FilePage({ params }: Props) {
       </main>
 
       {/* ==== FOOTER ==== */}
-      <footer style={{
-        borderTop: '1px solid var(--border-color)',
-        padding: '30px 24px',
-        textAlign: 'center',
-        fontSize: '0.8rem',
-        color: 'var(--text-secondary)',
-        backgroundColor: 'rgba(0,0,0,0.2)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '8px' }}>
-          <Link href="/contact" style={{ color: 'var(--text-secondary)' }}>Contact Us</Link>
-          <span style={{ color: 'var(--border-color)' }}>|</span>
-          <Link href="/dmca" style={{ color: 'var(--text-secondary)' }}>DMCA Policy</Link>
-        </div>
-        <div>
-          © {new Date().getFullYear()} WalkFiles. All rights reserved.
-        </div>
-      </footer>
+      <FileContentFooter fileName={id} fileId={id} />
 
       {/* Image Full Screen Modal Overlay */}
       {isFullScreen && isImage && (

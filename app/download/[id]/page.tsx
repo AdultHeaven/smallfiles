@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { FileRepository } from '../../../repositories/file.repository';
 import DownloadDetails from './DownloadDetails';
 import Navbar from '@/components/Navbar';
+import FileContentFooter from '@/components/FileContentFooter';
 
 
 interface PageProps {
@@ -65,9 +66,7 @@ export default async function DownloadPage({ params }: PageProps) {
         <DownloadDetails file={file} downloadUrl={downloadUrl} />
       </main>
 
-      <footer style={{ borderTop: '1px solid var(--border-color)', padding: '24px', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-        © {new Date().getFullYear()} WalkFiles. Cloud sharing made simple.
-      </footer>
+      <FileContentFooter fileName={file.original_name} fileId={file.id} />
     </div>
   );
 }

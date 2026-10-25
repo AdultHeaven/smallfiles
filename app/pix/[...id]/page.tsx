@@ -104,6 +104,7 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 import '../../filePagePix.css';
 import Script from 'next/script';
 import ContentAdBanner from '@/components/ContentAdBanner';
+import FileContentFooter from '@/components/FileContentFooter';
 
 
 type Props = { params: { id: string[] } };
@@ -195,21 +196,7 @@ export default function FilePage({ params }: Props) {
       )}
 
       
-       <footer className="pf-footer" role="contentinfo">
-         <div className="pf-footer-inner">
-           <div className="pf-foot-left">
-             <span className="brand-min">WalkFiles.com</span>
-           </div>
-
-           <div className="pf-foot-links">
-             <a href="/dmca">DMCA</a>
-           </div>
-
-           <div className="pf-foot-right">
-             <span className="copyright">© {new Date().getFullYear()}</span>
-           </div>
-         </div>
-       </footer>
+       <FileContentFooter fileName={filePath} fileId={filePath} />
     </div>
   );
 }
