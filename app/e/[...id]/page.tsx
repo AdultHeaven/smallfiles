@@ -7,11 +7,11 @@ import EmbedDetails from './EmbedDetails';
 
 interface PageProps {
   params: {
-    id?: string[];
+    id: string[];
   };
 }
 
-export function parseEmbedTarget(segments: string[] = []): {
+function parseEmbedTarget(segments: string[] = []): {
   embedUrl: string;
   fileName: string;
   cleanPath: string;
