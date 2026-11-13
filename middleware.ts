@@ -2,6 +2,27 @@ import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
+  const url = request.nextUrl.clone();
+
+  // Quick cookie check: if the request has no Supabase session cookie at all,
+  // we can immediately determine auth state without making external network calls to Supabase.
+  const hasAuthCookie = request.cookies.getAll().some(
+    (c) => c.name.startsWith('sb-') && c.name.includes('auth-token')
+  );
+
+  // Protect /dashboard: redirect unauthenticated visitor immediately
+  if (url.pathname.startsWith('/dashboard')) {
+    if (!hasAuthCookie) {
+      url.pathname = '/login';
+      return NextResponse.redirect(url);
+    }
+  }
+
+  // Auth pages: if no auth cookie is present, visitor is definitely logged out, continue immediately
+  if (!hasAuthCookie && (url.pathname === '/login' || url.pathname === '/register' || url.pathname === '/forgot-password')) {
+    return NextResponse.next();
+  }
+
   let response = NextResponse.next({
     request: {
       headers: request.headers,
@@ -33,8 +54,6 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const url = request.nextUrl.clone();
-
   // Protect /dashboard and sub-routes
   if (url.pathname.startsWith('/dashboard')) {
     if (!user) {
@@ -55,12 +74,14 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
+     * Only run middleware on routes that actually require authentication checks.
+     * All public and non-user-specific pages (/ , /pricing, /f/*, /e/*, /download/*, etc.)
+     * are bypassed completely so they are served directly by Vercel CDN Edge Cache
+     * without triggering Fluid Compute functions.
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/dashboard/:path*',
+    '/login',
+    '/register',
+    '/forgot-password',
   ],
 };

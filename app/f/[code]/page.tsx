@@ -6,7 +6,8 @@ import ShortLinkDetails from './ShortLinkDetails';
 import Navbar from '@/components/Navbar';
 import FileContentFooter from '@/components/FileContentFooter';
 
-export const revalidate = 604800; // Cache for 1 week (604800 seconds)
+export const revalidate = 31536000; // Cache permanently (1 year)
+export const dynamicParams = true;
 
 interface PageProps {
   params: {

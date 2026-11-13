@@ -1,5 +1,6 @@
 // app/api/files/delete/route.ts
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { createServerSideClient } from '../../../../lib/supabase/server';
 import { FileRepository } from '../../../../repositories/file.repository';
 import { ProfileRepository } from '../../../../repositories/profile.repository';
@@ -51,6 +52,17 @@ export async function POST(request: Request) {
 
     // 3. Subtract from user storage used
     await profileRepo.updateStorageUsed(user.id, -file.size);
+
+    // 4. Invalidate edge cache for this file's public pages
+    try {
+      if (file.short_code) {
+        revalidatePath(`/f/${file.short_code}`);
+      }
+      revalidatePath(`/download/${file.id}`);
+      revalidatePath(`/f/${file.id}`);
+    } catch (e) {
+      console.error('Error revalidating path on delete:', e);
+    }
 
     return NextResponse.json({ success: true });
   } catch (err: any) {

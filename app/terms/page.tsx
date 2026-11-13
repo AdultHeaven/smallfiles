@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
+export const dynamic = 'force-static';
+
 export default function TermsPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>

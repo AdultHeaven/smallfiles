@@ -1,5 +1,6 @@
 // app/api/files/rename/route.ts
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { createServerSideClient } from '../../../../lib/supabase/server';
 import { FileRepository } from '../../../../repositories/file.repository';
 
@@ -26,6 +27,17 @@ export async function POST(request: Request) {
 
     if (!updatedFile) {
       return NextResponse.json({ error: 'Failed to rename file or access forbidden.' }, { status: 500 });
+    }
+
+    // Invalidate edge cache for this file's public pages so updated name reflects
+    try {
+      if (updatedFile.short_code) {
+        revalidatePath(`/f/${updatedFile.short_code}`);
+      }
+      revalidatePath(`/download/${updatedFile.id}`);
+      revalidatePath(`/f/${updatedFile.id}`);
+    } catch (e) {
+      console.error('Error revalidating path on rename:', e);
     }
 
     return NextResponse.json(updatedFile);

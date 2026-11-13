@@ -5,6 +5,9 @@ import Navbar from '@/components/Navbar';
 import FileContentFooter from '@/components/FileContentFooter';
 import EmbedDetails from './EmbedDetails';
 
+export const revalidate = 31536000; // Cache permanently (1 year)
+export const dynamicParams = true;
+
 interface PageProps {
   params: {
     id: string[];
